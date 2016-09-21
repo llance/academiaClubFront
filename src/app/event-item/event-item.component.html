@@ -1,0 +1,45 @@
+<div *ngIf="!item" class="loading-section">
+  <!-- You can add a loading indicator here if you want to :) </i> -->
+</div>
+<div *ngIf="item">
+  <div class="item-laptop">
+    <p> 
+      <a class="title" href="">
+        {{item.event_country}}
+      </a>
+      <!-- <span class="domain">{{item.url | domain}}</span>
+    </p>
+    <div class="subtext-laptop">
+      {{item.score}} points by 
+      <a href="">{{item.by}}</a>
+      {{ (item.time | amFromUnix) | amTimeAgo }}
+      <a href="">
+        <span *ngIf="item.descendants !== 0">
+          {{item.descendants}}
+          <span *ngIf="item.descendants === 1">comment</span>
+          <span *ngIf="item.descendants > 1">comments</span>
+        </span>
+        <span *ngIf="item.descendants === 0">discuss</span>
+      </a>
+    </div> -->
+  </div>
+</div>
+<!-- 
+[ { "id": 1, 
+    "specialty": "awp", 
+    "category": "csgo", 
+    "event_text": "kennys", 
+    "event_country": "france", 
+    "event_region": "digne", "event_city": "digne-les-bains", "start_date": "2016-09-20", "end_date": "2016-09-30", "event_organizer": "kennny", "event_description": "csgo", "event_program": "foo", "event_cost": "bar", "event_link": "http://foobar.com", "event_abstract": "foobark", "event_other": "kennyS", "event_image_url": "/media/images/event_images/2016/09/20/Photo_on_2015-10-23_at_9.25_PM.jpg", "event_image_source": "http://foobar.com" } ]
+
+{
+  "by" : "phyllis",
+  "descendants" : 0,
+  "id" : 2,
+  "kids" : [ 454411 ],
+  "score" : 16,
+  "time" : 1160418628,
+  "title" : "A Student's Guide to Startups",
+  "type" : "story",
+  "url" : "https://www.paulgraham.com/mit.html"
+} -->
