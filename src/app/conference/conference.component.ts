@@ -14,12 +14,12 @@ export class ConferenceComponent implements OnInit {
   constructor(private _conferenceApiService: ConferenceApiService) {}
 
   ngOnInit() {
-      console.log("this._conferenceApiService.getConference() is :" + this._conferenceApiService.getConference());
+    console.log("this._conferenceApiService.getConference() is :" + this._conferenceApiService.getConference());
     this._conferenceApiService.getConference()
                     .subscribe(
                       items => this.items = items,
                       error => console.log('Error fetching conferences'));
   }
 
-
 }
+

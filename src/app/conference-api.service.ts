@@ -12,9 +12,9 @@ baseUrl: string;
   }
 
   getConference(): Observable<any> {
-      console.log("foo!");
+    console.log("getting conference event from backend...");
     return this.http.get(`${this.baseUrl}opportunites/api/evenement/`)
                     .map(response => response.json());
   }
-
 }
+
