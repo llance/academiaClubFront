@@ -21,5 +21,9 @@ export class ConferenceComponent implements OnInit {
                       error => console.log('Error fetching conferences'));
   }
 
+  over(){
+    console.log("Mouseover called"); 
+  }
+
 }
 

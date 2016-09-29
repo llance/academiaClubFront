@@ -3,10 +3,11 @@
         Accueil > Conférences et congrès
     </p>
     <ol>
-        <!-- <li>{{items | json}}</li> -->
-        <li *ngFor="let item of items">
-<!--             <div on-mouseover='over()'>hello mouseover</div>
- -->            <p>{{item.event_text}}</p>
+        <li>{{items.results | json}}</li>
+        <li *ngFor="let item of items.results">
+            <!--             <div on-mouseover='over()'>hello mouseover</div>
+ -->
+            <p>{{item.event_text}}</p>
             <p>{{item.start_date}} a {{item.end_date}}</p>
             <p>{{item.event_city}} ({{item.event_region}}), {{item.event_country}}</p>
         </li>

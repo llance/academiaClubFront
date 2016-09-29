@@ -1,32 +1,93 @@
-<header id="header">
-  <a class="home-link" href="/">
-    <img class="logo" src="https://i.imgur.com/rMfa8TG.png">
-  </a>
-  <div class="header-text">
-    <div class="left">
-      <span class="header-nav">
-        <a routerLink="" href="">Accueil</a>
-        <span class="divider">
-          |
-        </span>
-        <a href="">Project</a>
-        <span class="divider">
-          |
-        </span>
-        <a routerLink="/conference">Opportunités</a>
-        <span class="divider">
-          |
-        </span>
-        <a href="">À propos</a>
-        <span class="divider">
-          |
-        </span>
-        <a href="">Connexion</a>
-        <span class="divider">
-          |
-        </span>
-        <a href="">Inscription</a>
-      </span>
+<header id="header" class="full-header">
+    <div id="header-wrap">
+        <div class="container clearfix">
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+            <!-- Logo
+          ============================================= -->
+            <div id="logo">
+                <!-- FIX LOGO LATER -->
+<!--                 <a href="#" class="standard-logo"><img src="{% static " images/academiaclub.png " %}" alt="Academia Club Logo"></a>
+ -->            </div>
+            <!-- #logo end -->
+            <!-- Primary Navigation
+          ============================================= -->
+            <nav id="primary-menu">
+                <ul>
+<!--                     {# add class current to li for current page effect #}
+ -->                    <li class="current">
+                        <a href="#">
+                            <div>Accueil</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>Carrières</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>Conférences</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>À propos</div>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div>FAQ</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div>Mission</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div>Contact</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div>Condition d'utilisation</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>Connexion</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>Inscription</div>
+                        </a>
+                    </li>
+                    <!--               Hide profile, deconnexion for non members, hide connexion inscription non members
+ -->
+                    <li>
+                        <a href="#">
+                            <div>Membres</div>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div>Profile</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div>Déconnexion</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- #primary-menu end -->
+        </div>
     </div>
-  </div>
 </header>
