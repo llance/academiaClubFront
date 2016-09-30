@@ -13,6 +13,7 @@ import { ConferenceApiService } from './conference-api.service';
 
 import { routing } from './app.routes';
 import { EventItemComponent } from './event-item/event-item.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { EventItemComponent } from './event-item/event-item.component';
     FooterComponent,
     BodyComponent,
     ConferenceComponent,
-    EventItemComponent
+    EventItemComponent,
+    AboutComponent
   ],
   providers: [ConferenceApiService],
   bootstrap: [AppComponent]
