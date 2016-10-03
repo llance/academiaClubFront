@@ -13,7 +13,8 @@ import { Component, OnInit } from '@angular/core';
   '../assets/css/magnific-popup.css',
   '../assets/css/responsive.css',
   '../assets/css/medicalanimation.css',
-  '../assets/css/swiper.css']
+  '../assets/css/swiper.css',
+  '../assets/css/google-css.css']
 })
 export class BodyComponent implements OnInit {
 

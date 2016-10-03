@@ -12,10 +12,10 @@ import { Component, OnInit } from '@angular/core';
   '../assets/css/animate.css',
   '../assets/css/magnific-popup.css',
   '../assets/css/responsive.css',
-  '../assets/css/medicalanimation.css']
+  '../assets/css/medicalanimation.css',
+  '../assets/css/google-css.css']
 })
 export class HeaderComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

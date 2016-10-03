@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ConferenceApiService } from '../conference-api.service';
+import { ConferenceApiService, Conferences, ConferenceEvent } from '../conference-api.service';
 
 @Component({
   selector: 'app-conference',
@@ -17,18 +17,23 @@ import { ConferenceApiService } from '../conference-api.service';
   '../assets/css/responsive.css',
   '../assets/css/medicalanimation.css',
   '../assets/css/swiper.css',
-  '../assets/css/components/bs-select.css']
+  '../assets/css/components/bs-select.css',
+  '../assets/css/google-css.css']
 })
 export class ConferenceComponent implements OnInit {
-    items;
+  Conferences;
+  selectedEvent: ConferenceEvent;
 
   constructor(private _conferenceApiService: ConferenceApiService) {}
 
   ngOnInit() {
     this._conferenceApiService.getConference()
-                    .subscribe(
-                      items => this.items = items,
-                      error => console.log('Error fetching conferences'));
+    .subscribe(
+      Conferences => this.Conferences = Conferences,
+      error => console.log('Error fetching conferences'));
+  }
+
+  onSelect(selectedEvent: ConferenceEvent): void {
+    this.selectedEvent = selectedEvent;
   }
 }
-

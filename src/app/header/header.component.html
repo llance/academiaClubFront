@@ -1,18 +1,23 @@
 <header id="header" class="full-header">
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/functions.js"></script>
+
     <div id="header-wrap">
         <div class="container clearfix">
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-            <!-- Logo
-          ============================================= -->
+            <!-- Logo ============================================= -->
             <div id="logo">
                 <!-- FIX LOGO LATER -->
                 <a href="#" class="standard-logo"><img src="images/academiaclub.png" alt="Academia Club Logo"></a>
             </div>
             <!-- #logo end -->
+
+
             <!-- Primary Navigation============================================= -->
             <nav id="primary-menu">
                 <ul>
-                    <!--                     {# add class current to li for current page effect #} -->
+                    <!--  # add class current to li for current page effect #} -->
                     <li class="current">
                         <a href="#">
                             <div>Accueil</div>
@@ -20,8 +25,9 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div>Carrières</div>
-                        </a>
+                        <a routerLink="/event-detail">Carrières</a>
+<!--                             <div>Carrières</div>
+ -->                        </a>
                     </li>
                     <li>
                         <a href="#">
@@ -89,6 +95,4 @@
             <!-- #primary-menu end -->
         </div>
     </div>
-    <script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script type="text/javascript" src="assets/js/plugins.js"></script>
 </header>
