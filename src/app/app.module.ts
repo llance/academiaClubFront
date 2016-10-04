@@ -14,6 +14,10 @@ import { ConferenceApiService } from './conference-api.service';
 import { routing } from './app.routes';
 import { EventItemComponent } from './event-item/event-item.component';
 import { AboutComponent } from './about/about.component';
+import { FaqComponent } from './faq/faq.component';
+import { MissionComponent } from './mission/mission.component';
+import { ContactComponent } from './contact/contact.component';
+import { ConditionComponent } from './condition/condition.component';
 
 @NgModule({
   imports: [
@@ -29,7 +33,11 @@ import { AboutComponent } from './about/about.component';
     BodyComponent,
     ConferenceComponent,
     EventItemComponent,
-    AboutComponent
+    AboutComponent,
+    FaqComponent,
+    MissionComponent,
+    ContactComponent,
+    ConditionComponent
   ],
   providers: [ConferenceApiService],
   bootstrap: [AppComponent]
