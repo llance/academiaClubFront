@@ -7,6 +7,8 @@ import { FaqComponent } from './faq/faq.component';
 import { MissionComponent } from './mission/mission.component';
 import { ConditionComponent } from './condition/condition.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
+
 
 
 
@@ -17,7 +19,9 @@ const routes: Routes = [
 {path: 'faq', component: FaqComponent},
 {path: 'mission', component: MissionComponent},
 {path: 'condition', component: ConditionComponent},
-{path: 'contact', component: ContactComponent}
+{path: 'contact', component: ContactComponent},
+{path: 'login', component: LoginComponent}
+
 
 
 ];

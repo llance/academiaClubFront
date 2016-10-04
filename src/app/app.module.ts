@@ -18,6 +18,7 @@ import { FaqComponent } from './faq/faq.component';
 import { MissionComponent } from './mission/mission.component';
 import { ContactComponent } from './contact/contact.component';
 import { ConditionComponent } from './condition/condition.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { ConditionComponent } from './condition/condition.component';
     FaqComponent,
     MissionComponent,
     ContactComponent,
-    ConditionComponent
+    ConditionComponent,
+    LoginComponent
   ],
   providers: [ConferenceApiService],
   bootstrap: [AppComponent]
