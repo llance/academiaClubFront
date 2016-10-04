@@ -1,15 +1,26 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>FrontEnd</title>
-  <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  
+<head>
+    <!-- from header.component.html -->
+    <script type="text/javascript" src="app/assets/js/jquery.js"></script>
+    <script type="text/javascript" src="app/assets/js/plugins.js"></script>
+    <script type="text/javascript" src="app/assets/js/functions.js"></script>
+    <!-- from conference.component.html -->
+    <script type="text/javascript" src="app/assets/js/components/bs-select.js"></script>
+    <script type="text/javascript" src="app/assets/js/components/selectsplitter.js"></script>
+    <script type="text/javascript">
+    $('.selectsplitter').selectsplitter();
+    </script>
+    <meta charset="utf-8">
+    <title>FrontEnd</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
-  <app-root>Loading...</app-root>
+    <app-root>Loading...</app-root>
 </body>
+
 </html>
