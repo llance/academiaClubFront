@@ -33,43 +33,44 @@
                         <h5 class="nobottommargin">
                             <i class="icon-line2-pin"></i> Catégorie
                         </h5>
-                        <p class="nobottommargin"><input [(ngModel)]="conferenceEvent.category" placeholder="category"/></p>
+                        <p class="nobottommargin">{{conferenceEvent.category}}</p>
                         <h5 class="nobottommargin">
                             <i class="icon-stethoscope"></i> Spécialité
                         </h5>
-                        <p class="nobottommargin"> <input [(ngModel)]="conferenceEvent.speciality" /></p>
+                        <p class="nobottommargin">{{conferenceEvent.specialty}}</p>
                         <h5 class="nobottommargin">
                             <i class="icon-line-tag"></i> Tags
                         </h5>
-                        <p class="nobottommargin"> <input [(ngModel)]="conferenceEvent.event_tag" /></p>
+                        <p class="nobottommargin">{{conferenceEvent.event_tag}}</p>
                     </section>
                     <!-- Evenement filter data end -->
                     <!-- Evenement call to action button -->
-                    <a href="#" class="button button-3d button-rounded button-blue"><i class="icon-bookmark"></i>Abonner</a>
-                </div>
+<!--                     <a href="#" class="button button-3d button-rounded button-blue"><i class="icon-bookmark"></i>Abonner</a>
+ -->                </div>
             <!-- Evenement Content
             ============================================= -->
-            <div class="col_two_third portfolio-single-content col_last nobottommargin">
+            <div *ngIf="conferenceEvent" class="col_two_third portfolio-single-content col_last nobottommargin">
                 <div class="fancy-title title-bottom-border">
                     <h2>Titre de l'évènement</h2>
+                    {{conferenceEvent.event_text}} 
                 </div>
                 <h5 class="nobottommargin">Date</h5>
-                <p>[(ngModel)]="conferenceEvent.category" à [(ngModel)]="conferenceEvent.category"</p>
+                <p>{{conferenceEvent.start_date}} à {{conferenceEvent.end_date}}"</p>
                 <hr>
                 <h5 class="nobottommargin">Emplacement</h5>
-                <p>Montreal, Quebec, Canada</p>
+                <p>{{conferenceEvent.event_city}}, {{conferenceEvent.event_region}}, {{conferenceEvent.event_country}}</p>
                 <hr>
                 <h5 class="nobottommargin">Description</h5>
-                <p>Description de l'evenement</p>
+                <p>{{conferenceEvent.event_description}}</p>
                 <hr>
                 <h5 class="nobottommargin">Programme</h5>
-                <p>Programme</p>
+                <p>{{conferenceEvent.event_program}}</p>
                 <hr>
                 <h5 class="nobottommargin">Frais d'inscription</h5>
-                <p>$ 200</p>
+                <p>{{conferenceEvent.event_cost}}</p>
                 <hr>
                 <h5 class="nobottommargin">Lien d'inscription</h5>
-                <p>www.someahref.com</p>
+                <p>{{conferenceEvent.event_link}}</p>
                 <hr>
                 <h5 class="nobottommargin">Appel de resumes</h5>
                 <p>Date limite 2010-09-00</p>
