@@ -30,7 +30,6 @@ export class EventItemComponent implements OnInit {
 
             }
             this.navigated = false;
-            // this.conferenceEvent = new Hero();
         });
     }
 }
