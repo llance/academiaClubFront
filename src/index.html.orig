@@ -14,8 +14,12 @@
     $('.selectsplitter').selectsplitter();
     </script>
     <meta charset="utf-8">
+<<<<<<< HEAD
+    <title>FrontEnd</title>
+=======
     <title>Academia Club</title>
     <base href="/">
+>>>>>>> f73e343ba7040005c258e5705c45624260bc21fc
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
