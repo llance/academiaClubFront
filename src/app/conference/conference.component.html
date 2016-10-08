@@ -20,9 +20,9 @@
                 ============================================= -->
                 <section id="event-search" class="col_full bottommargin-sm">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
+                        <input type="text" class="form-control" placeholder="Search for..." #searchInput (keyup.enter)="searchEvent(searchInput.value)" (blur)="searchEvent(searchInput.value); searchInput.value='' ">
                         <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button">Go!</button>
+                        <button class="btn btn-primary" type="button" (click)=searchEvent(searchInput.value)>Go!</button>
                         </span>
                     </div>
                     <!-- /input-group -->
@@ -73,7 +73,7 @@
                     <div *ngIf="Conferences">
                         <li *ngFor="let conference of Conferences.results" [class.selected]="conference === selectedEvent">
                             <div id="portfolio" class="portfolio grid-container portfolio-3 clearfix">
-                                <article class="portfolio-item pf-media pf-icons">
+                                <article class="portfolio-item pf-media pf-icons event_item">
                                     <div class="portfolio-image">
                                         <a href="#">
                                             <img src="images/portfolio/4/1.jpg" alt="Open Imagination">

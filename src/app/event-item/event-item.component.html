@@ -1,21 +1,21 @@
 <!-- Page Title
     ============================================= -->
-    <section id="page-title">
-        <div class="container clearfix">
-            <h1>Evènement - detail</h1>
-            <div id="portfolio-navigation">
-                <a href="#"><i class="icon-angle-left"></i></a>
-                <a href="#"><i class="icon-line-grid"></i></a>
-                <a href="#"><i class="icon-angle-right"></i></a>
-            </div>
+<section id="page-title">
+    <div class="container clearfix">
+        <h1>Evènement - detail</h1>
+        <div id="portfolio-navigation">
+            <a href="#"><i class="icon-angle-left"></i></a>
+            <a href="#"><i class="icon-line-grid"></i></a>
+            <a href="#"><i class="icon-angle-right"></i></a>
         </div>
-    </section>
-    <!-- #page-title end -->
+    </div>
+</section>
+<!-- #page-title end -->
 <!-- Content
     ============================================= -->
-    <section id="content">
-        <div class="content-wrap">
-            <div class="container clearfix">
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
             <!-- Evenement side bar
             ============================================= -->
             <div class="col_one_third ">
@@ -23,11 +23,10 @@
                 ============================================= -->
                 <!--                         <a href="#"><img src="{% static "" %}images/portfolio/single/10.jpg" alt=""></a>
             -->
-            <!-- Evenement single image end -->
-            <hr>
+                <!-- Evenement single image end -->
+                <hr>
                 <!-- Evenement filter data
                 ============================================= -->
-
                 <div *ngIf="conferenceEvent">
                     <section id="filters">
                         <h5 class="nobottommargin">
@@ -45,166 +44,76 @@
                     </section>
                     <!-- Evenement filter data end -->
                     <!-- Evenement call to action button -->
-<!--                     <a href="#" class="button button-3d button-rounded button-blue"><i class="icon-bookmark"></i>Abonner</a>
- -->                </div>
-            <!-- Evenement Content
+                    <!--                     <a href="#" class="button button-3d button-rounded button-blue"><i class="icon-bookmark"></i>Abonner</a>
+ --></div>
+                <!-- Evenement Content
             ============================================= -->
-            <div *ngIf="conferenceEvent" class="col_two_third portfolio-single-content col_last nobottommargin">
-                <div class="fancy-title title-bottom-border">
-                    <h2>Titre de l'évènement</h2>
-                    {{conferenceEvent.event_text}} 
-                </div>
-                <h5 class="nobottommargin">Date</h5>
-                <p>{{conferenceEvent.start_date}} à {{conferenceEvent.end_date}}"</p>
-                <hr>
-                <h5 class="nobottommargin">Emplacement</h5>
-                <p>{{conferenceEvent.event_city}}, {{conferenceEvent.event_region}}, {{conferenceEvent.event_country}}</p>
-                <hr>
-                <h5 class="nobottommargin">Description</h5>
-                <p>{{conferenceEvent.event_description}}</p>
-                <hr>
-                <h5 class="nobottommargin">Programme</h5>
-                <p>{{conferenceEvent.event_program}}</p>
-                <hr>
-                <h5 class="nobottommargin">Frais d'inscription</h5>
-                <p>{{conferenceEvent.event_cost}}</p>
-                <hr>
-                <h5 class="nobottommargin">Lien d'inscription</h5>
-                <p>{{conferenceEvent.event_link}}</p>
-                <hr>
-                <h5 class="nobottommargin">Appel de resumes</h5>
-                <p>Date limite 2010-09-00</p>
-                <hr>
-                <h5 class="nobottommargin">Autres informations</h5>
-                <p>Insert autres informations here</p>
-                <!--  Evenement Content End -->
-                <!-- Evenement - Share
+                <div *ngIf="conferenceEvent" class="col_two_third portfolio-single-content col_last nobottommargin">
+                    <div class="fancy-title title-bottom-border">
+                        <h2>Titre de l'évènement</h2> {{conferenceEvent.event_text}}
+                    </div>
+                    <h5 class="nobottommargin">Date</h5>
+                    <p>{{conferenceEvent.start_date}} à {{conferenceEvent.end_date}}"</p>
+                    <hr>
+                    <h5 class="nobottommargin">Emplacement</h5>
+                    <p>{{conferenceEvent.event_city}}, {{conferenceEvent.event_region}}, {{conferenceEvent.event_country}}</p>
+                    <hr>
+                    <h5 class="nobottommargin">Description</h5>
+                    <p>{{conferenceEvent.event_description}}</p>
+                    <hr>
+                    <h5 class="nobottommargin">Programme</h5>
+                    <p>{{conferenceEvent.event_program}}</p>
+                    <hr>
+                    <h5 class="nobottommargin">Frais d'inscription</h5>
+                    <p>{{conferenceEvent.event_cost}}</p>
+                    <hr>
+                    <h5 class="nobottommargin">Lien d'inscription</h5>
+                    <p>{{conferenceEvent.event_link}}</p>
+                    <hr>
+                    <h5 class="nobottommargin">Appel de resumes</h5>
+                    <p>Date limite 2010-09-00</p>
+                    <hr>
+                    <h5 class="nobottommargin">Autres informations</h5>
+                    <p>Insert autres informations here</p>
+                    <!--  Evenement Content End -->
+                    <!-- Evenement - Share
                 ============================================= -->
-                <div class="si-share clearfix">
-                    <span>Partager:</span>
-                    <div>
-                        <a href="#" class="social-icon si-borderless si-facebook">
-                            <i class="icon-facebook"></i>
-                            <i class="icon-facebook"></i>
-                        </a>
-                        <a href="#" class="social-icon si-borderless si-twitter">
-                            <i class="icon-twitter"></i>
-                            <i class="icon-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon si-borderless si-pinterest">
-                            <i class="icon-pinterest"></i>
-                            <i class="icon-pinterest"></i>
-                        </a>
-                        <a href="#" class="social-icon si-borderless si-gplus">
-                            <i class="icon-gplus"></i>
-                            <i class="icon-gplus"></i>
-                        </a>
-                        <a href="#" class="social-icon si-borderless si-email3">
-                            <i class="icon-email3"></i>
-                            <i class="icon-email3"></i>
-                        </a>
+                    <div class="si-share clearfix">
+                        <span>Partager:</span>
+                        <div>
+                            <a href="#" class="social-icon si-borderless si-facebook">
+                                <i class="icon-facebook"></i>
+                                <i class="icon-facebook"></i>
+                            </a>
+                            <a href="#" class="social-icon si-borderless si-twitter">
+                                <i class="icon-twitter"></i>
+                                <i class="icon-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon si-borderless si-pinterest">
+                                <i class="icon-pinterest"></i>
+                                <i class="icon-pinterest"></i>
+                            </a>
+                            <a href="#" class="social-icon si-borderless si-gplus">
+                                <i class="icon-gplus"></i>
+                                <i class="icon-gplus"></i>
+                            </a>
+                            <a href="#" class="social-icon si-borderless si-email3">
+                                <i class="icon-email3"></i>
+                                <i class="icon-email3"></i>
+                            </a>
+                        </div>
                     </div>
+                    <!-- Portfolio Single - Share End -->
                 </div>
-                <!-- Portfolio Single - Share End -->
-            </div>
-            <!-- .portfolio-single-content end -->
-            <div class="clear"></div>
-            <div class="divider divider-center"><i class="icon-circle"></i></div>
-            <!-- Related Portfolio Items
+                <!-- .portfolio-single-content end -->
+                <div class="clear"></div>
+                <div class="divider divider-center"><i class="icon-circle"></i></div>
+                <!-- Related Portfolio Items
             ============================================= -->
-            <h4>Related Projects: (insert events with same tags here, 9 at most?)</h4>
-            <div id="slider" class="owl-carousel portfolio-carousel carousel-widget" data-margin="20" data-nav="false" data-autoplay="5000" data-items-xxs="1" data-items-xs="2" data-items-sm="3" data-items-lg="4">
-                <div class="oc-item">
-                    <div class="iportfolio">
-                        <div class="portfolio-image">
-                            <a href="portfolio-single.html">
-                                <!-- <img src="{% static "" %}images/portfolio/4/1.jpg" alt="Open Imagination"> -->
-                            </a>
-                            <div class="portfolio-overlay">
-                                <a href="images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                <a href="portfolio-single.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                            </div>
-                        </div>
-                        <div class="portfolio-desc">
-                            <h3><a href="portfolio-single.html">Open Imagination</a></h3>
-                            <span><a href="#">Media</a>, <a href="#">Icons</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="oc-item">
-                    <div class="iportfolio">
-                        <div class="portfolio-image">
-                            <a href="portfolio-single.html">
-                                <!-- <img src="{% static "" %}images/portfolio/4/2.jpg" alt="Locked Steel Gate"> -->
-                            </a>
-                            <div class="portfolio-overlay">
-                                <a href="images/portfolio/full/2.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                <a href="portfolio-single.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                            </div>
-                        </div>
-                        <div class="portfolio-desc">
-                            <h3><a href="portfolio-single.html">Locked Steel Gate</a></h3>
-                            <span><a href="#">Illustrations</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="oc-item">
-                    <div class="iportfolio">
-                        <div class="portfolio-image">
-                            <a href="#">
-                                <!-- <img src="{% static "" %}images/portfolio/4/3.jpg" alt="Mac Sunglasses"> -->
-                            </a>
-                            <div class="portfolio-overlay">
-                                <a href="http://vimeo.com/89396394" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
-                                <a href="portfolio-single-video.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                            </div>
-                        </div>
-                        <div class="portfolio-desc">
-                            <h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
-                            <span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="oc-item">
-                    <div class="iportfolio">
-                        <div class="portfolio-image">
-                            <a href="#">
-                                <!-- <img src="{% static "" %}images/portfolio/4/4.jpg" alt="Mac Sunglasses"> -->
-                            </a>
-                            <div class="portfolio-overlay" data-lightbox="gallery">
-                                <a href="images/portfolio/full/4.jpg" class="left-icon" data-lightbox="gallery-item"><i class="icon-line-stack-2"></i></a>
-                                <a href="images/portfolio/full/4-1.jpg" class="hidden" data-lightbox="gallery-item"></a>
-                                <a href="portfolio-single-gallery.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                            </div>
-                        </div>
-                        <div class="portfolio-desc">
-                            <h3><a href="portfolio-single-gallery.html">Morning Dew</a></h3>
-                            <span><a href="#">Icons</a>, <a href="#">Illustrations</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="oc-item">
-                    <div class="iportfolio">
-                        <div class="portfolio-image">
-                            <a href="portfolio-single.html">
-                                <!-- <img src="{% static "" %}images/portfolio/4/5.jpg" alt="Console Activity"> -->
-                            </a>
-                            <div class="portfolio-overlay">
-                                <a href="images/portfolio/full/5.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                <a href="portfolio-single.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                            </div>
-                        </div>
-                        <div class="portfolio-desc">
-                            <h3><a href="portfolio-single.html">Console Activity</a></h3>
-                            <span><a href="#">UI Elements</a>, <a href="#">Media</a></span>
-                        </div>
-                    </div>
-                </div>
+                <h4>Related Projects: (insert events with same tags here, 9 at most?)</h4>
+                <!-- .portfolio-carousel end -->
             </div>
-            <!-- .portfolio-carousel end -->
         </div>
     </div>
-
-</div>
 </section>
 <!-- #content end -->

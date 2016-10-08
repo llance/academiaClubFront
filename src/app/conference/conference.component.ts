@@ -36,4 +36,13 @@ export class ConferenceComponent implements OnInit {
   onSelect(selectedEvent: ConferenceEvent): void {
     this.selectedEvent = selectedEvent;
   }
+
+  searchEvent(search_input : string) {
+    if (search_input) {
+      this._conferenceApiService.searchConference(search_input)
+      .subscribe(
+      Conferences => this.Conferences = Conferences,
+      error => console.log('Error fetching conferences'));
+    }
+  }
 }

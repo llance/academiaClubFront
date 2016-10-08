@@ -24,6 +24,13 @@ export class ConferenceApiService {
         return this.http.get(`${this.baseUrl}opportunites/api/evenement/${id}`)
         .map(response => response.json());
     }
+
+    searchConference(search_input: string): Observable<ConferenceEvent> {
+        console.log('search_input is : ', search_input);
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?search=${search_input}`)
+        .map(response => response.json());
+    }
+
 }
 
 export interface Conferences {  
