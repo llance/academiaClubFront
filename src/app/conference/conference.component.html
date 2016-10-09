@@ -29,10 +29,9 @@
                 </section>
                 <section id="event-filter" class="row" *ngIf="SpecialityFilter">
                     <div class="col-md-3 bottommargin-sm">
-                        <div class="white-section" *ngFor="let speciality of SpecialityFilter.results">
+                        <div class="white-section">
                             <select class="selectpicker" multiple data-style="btn-primary" data-none-selected-text="Filter 1">
-                                <option>{{speciality.specialty_text}}</option>
-
+                                <option *ngFor="let speciality of SpecialityFilter.results">{{speciality.specialty_text}}</option>
                             </select>
                         </div>
                     </div>
