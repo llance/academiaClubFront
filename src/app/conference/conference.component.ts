@@ -18,11 +18,14 @@ import { ConferenceApiService, Conferences, ConferenceEvent } from '../conferenc
   '../assets/css/medicalanimation.css',
   '../assets/css/swiper.css',
   '../assets/css/components/bs-select.css',
+  '../assets/css/imports/portfolio.css',
   '../assets/css/google-css.css']
 })
 export class ConferenceComponent implements OnInit {
   Conferences;
   selectedEvent: ConferenceEvent;
+  SpecialityFilter;
+
 
   constructor(private _conferenceApiService: ConferenceApiService) {}
 
@@ -31,6 +34,27 @@ export class ConferenceComponent implements OnInit {
     .subscribe(
       Conferences => this.Conferences = Conferences,
       error => console.log('Error fetching conferences'));
+
+    this.queryFilters();
+
+  }
+
+
+  queryFilters() {
+    this._conferenceApiService.getSpecialitesFilter()
+    .subscribe(
+      SpecialityFilter => this.SpecialityFilter = SpecialityFilter,
+      error => console.log('Error fetching Specialites Filter'));
+
+    // this._conferenceApiService.getGeoFilter()
+    // .subscribe(
+    //   Conferences => this.Conferences = Conferences,
+    //   error => console.log('Error fetching Geo Filter'));
+
+    // this._conferenceApiService.getCategoriesFilter()
+    // .subscribe(
+    //   Conferences => this.Conferences = Conferences,
+    //   error => console.log('Error fetching Categories Filter'));
   }
 
   onSelect(selectedEvent: ConferenceEvent): void {
@@ -41,8 +65,8 @@ export class ConferenceComponent implements OnInit {
     if (search_input) {
       this._conferenceApiService.searchConference(search_input)
       .subscribe(
-      Conferences => this.Conferences = Conferences,
-      error => console.log('Error fetching conferences'));
+        Conferences => this.Conferences = Conferences,
+        error => console.log('Error fetching conferences'));
     }
   }
 }

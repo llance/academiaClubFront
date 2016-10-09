@@ -19,6 +19,24 @@ export class ConferenceApiService {
         .map(response => response.json());
     }
 
+    getCategoriesFilter(): Observable<string> {
+        console.log("fetching filter choices for evenement page");
+        return this.http.get(`${this.baseUrl}opportunites/api/categories/`)
+        .map(response => response.json());
+    }
+
+    getGeoFilter(): Observable<string> {
+        console.log("fetching filter choices for evenement page");
+        return this.http.get(`${this.baseUrl}opportunites/api/geo/`)
+        .map(response => response.json());
+    }
+
+    getSpecialitesFilter(): Observable<any> {
+        console.log("fetching filter choices for evenement page");
+        return this.http.get(`${this.baseUrl}opportunites/api/specialites/`)
+        .map(response => response.json());
+    }
+
     getConferenceEventByID(id: number): Observable<ConferenceEvent> {
         console.log('id is : ', id);
         return this.http.get(`${this.baseUrl}opportunites/api/evenement/${id}`)
