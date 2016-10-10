@@ -7,19 +7,10 @@ import { ConferenceApiService, Conferences, ConferenceEvent } from '../conferenc
   selector: 'app-conference',
   templateUrl: './conference.component.html',
   styleUrls: ['./conference.component.css',
-  '../assets/css/bootstrap.css',
-  '../assets/css/style.css',
-  '../assets/css/colors.css',
-  '../assets/css/dark.css',
-  '../assets/css/font-icons.css',
-  '../assets/css/animate.css',
-  '../assets/css/magnific-popup.css',
-  '../assets/css/responsive.css',
-  '../assets/css/medicalanimation.css',
   '../assets/css/swiper.css',
   '../assets/css/components/bs-select.css',
-  '../assets/css/imports/portfolio.css',
-  '../assets/css/google-css.css']
+  '../assets/css/imports/portfolio.css'
+  ]
 })
 export class ConferenceComponent implements OnInit {
   Conferences;
