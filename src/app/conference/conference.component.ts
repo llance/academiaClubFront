@@ -6,27 +6,13 @@ import { ConferenceApiService, Conferences, ConferenceEvent } from '../conferenc
 @Component({
   selector: 'app-conference',
   templateUrl: './conference.component.html',
-  // styles: [
-  //   require('../assets/css/google-css.css'),
-  //   require('../assets/css/bootstrap.css'),
-  //   require('../assets/css/style.css'),
-  //   require('../assets/css/colors.css'),
-  //   require('../assets/css/dark.css'),
-  //   require('../assets/css/font-icons.css'),
-  //   require( '../assets/css/animate.css'),
-  //   require('../assets/css/magnific-popup.css'),
-  //   require('../assets/css/responsive.css'),
-  //   require( '../assets/css/medicalanimation.css'),
-  //   // require('./assets/js/jquery.js'),
-  //   // require('./assets/js/plugins.js'),
-  //   // require('./assets/js/functions.js') 
-  //   ],
-  // styleUrls: ['./conference.component.css',
-  // // '../assets/css/style.css',
+
+  styleUrls: ['./conference.component.css',
+  // '../assets/css/style.css',
   // '../assets/css/swiper.css',
   // '../assets/css/components/bs-select.css',
   // '../assets/css/imports/portfolio.css'
-  // ]
+  ]
 })
 export class ConferenceComponent implements OnInit {
   Conferences;

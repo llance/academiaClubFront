@@ -10,6 +10,7 @@ $.fn.doOnce = function( func ) {
 }
 
 if( $().infinitescroll ) {
+
 	$.extend($.infinitescroll.prototype,{
 		_setup_portfolioinfiniteitemsloader: function infscr_setup_portfolioinfiniteitemsloader() {
 			var opts = this.options,
@@ -1500,11 +1501,14 @@ var SEMICOLON = SEMICOLON || {};
 		},
 
 		sliderParallaxDimensions: function(){
-			if( $sliderParallaxEl.find('.slider-parallax-inner').length < 1 ) { return true; }
+			if( $sliderParallaxEl.find('.slider-parallax-inner').length < 1 ) { 
+				return true; }
 
 			if( $body.hasClass('device-lg') || $body.hasClass('device-md') || $body.hasClass('device-sm') ) {
 				var parallaxElHeight = $sliderParallaxEl.outerHeight(),
 					parallaxElWidth = $sliderParallaxEl.outerWidth();
+
+
 
 				if( $sliderParallaxEl.hasClass('revslider-wrap') || $sliderParallaxEl.find('.carousel-widget').length > 0 ) {
 					parallaxElHeight = $sliderParallaxEl.find('.slider-parallax-inner').children().first().outerHeight();
@@ -1522,7 +1526,9 @@ var SEMICOLON = SEMICOLON || {};
 					$sliderParallaxEl.find('.slider-parallax-inner').width( parallaxElWidth );
 				}
 			} else {
-				$sliderParallaxEl.find('.slider-parallax-inner').css({ 'width': '', height: '' });
+				// console.log("$sliderParallaxEl.outerHeight() is ", $sliderParallaxEl.outerHeight());
+				$sliderParallaxEl.find('.slider-parallax-inner').css({ 'width': '', 'height': '' });
+
 			}
 
 			if( swiperSlider != '' ) { swiperSlider.update( true ); }
@@ -1835,7 +1841,6 @@ var SEMICOLON = SEMICOLON || {};
 	SEMICOLON.portfolio = {
 
 		init: function(){
-
 			SEMICOLON.portfolio.ajaxload();
 
 		},
@@ -3513,10 +3518,12 @@ var SEMICOLON = SEMICOLON || {};
 	SEMICOLON.documentOnReady = {
 
 		init: function(){
+			console.log("$slider.length is :" , $slider.length);
+			console.log("$portfolio.length is :" , $portfolio.length);
 			SEMICOLON.initialize.init();
 			SEMICOLON.header.init();
-			if( $slider.length > 0 ) { SEMICOLON.slider.init(); }
-			if( $portfolio.length > 0 ) { SEMICOLON.portfolio.init(); }
+			if( $slider.length >= 0 ) { SEMICOLON.slider.init(); }
+			if( $portfolio.length >= 0 ) { SEMICOLON.portfolio.init(); }
 			SEMICOLON.widget.init();
 			SEMICOLON.documentOnReady.windowscroll();
 		},

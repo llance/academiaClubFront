@@ -17,9 +17,7 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": ["app/assets/js/jquery.js",
-        "app/assets/js/plugins.js",
-        "app/assets/js/functions.js"
+      "scripts": [
       ],
       "environments": {
         "source": "environments/environment.ts",

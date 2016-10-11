@@ -1788,7 +1788,7 @@ body.side-panel-left.side-panel-open #side-panel {
 body.side-push-panel.side-panel-open.stretched #wrapper,
 body.side-push-panel.side-panel-open.stretched #header.sticky-header .container { right: 300px; }
 
-body.side-push-panel.side-panel-open.stretched .slider-parallax-inner { left: -300px; }
+body.side-push-panel.side-panel-open.stretched .slider-parallax-inner { left: -300px; height: 100%; }
 
 body.side-panel-left.side-push-panel.side-panel-open.stretched #wrapper,
 body.side-panel-left.side-push-panel.side-panel-open.stretched #header.sticky-header .container,
