@@ -986,8 +986,8 @@ body.stretched #header.full-header .container {
 }
 top: 50%;
 	margin-top: -25px;
-	width: 50px;
-	height: 50px;
+/*	width: 50px;
+*/	height: 50px;
 	line-height: 50px;
 	text-align: center;
 	-webkit-transition: opacity .3s ease;
@@ -11910,8 +11910,8 @@ label.checkbox { padding-left: 20px; }
 body:not(.no-transition) #wrapper,
 .animsition-overlay {
 	position: relative;
-/*	opacity: 0;
-*/	-webkit-animation-fill-mode: both;
+	/*opacity: 0;*/
+	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both;
 }
 
