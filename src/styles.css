@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("app/assets/css/bootstrap.css");
+@import url("app/assets/css/style.css");
+@import url("app/assets/css/colors.css");
+@import url("app/assets/css/dark.css");
+@import url("app/assets/css/font-icons.css");
+@import url("app/assets/css/animate.css");
+@import url("app/assets/css/magnific-popup.css");
+@import url("app/assets/css/responsive.css");
+@import url("app/assets/css/medicalanimation.css");
+@import url("app/assets/css/google-css.css");
+
+@import url("app/assets/css/swiper.css");
+@import url("app/assets/css/components/bs-select.css");
