@@ -6,12 +6,7 @@ import { ConferenceApiService, Conferences, ConferenceEvent } from '../conferenc
 @Component({
   selector: 'app-conference',
   templateUrl: './conference.component.html',
-
   styleUrls: ['./conference.component.css',
-  // '../assets/css/style.css',
-  // '../assets/css/swiper.css',
-  // '../assets/css/components/bs-select.css',
-  // '../assets/css/imports/portfolio.css'
   ]
 })
 export class ConferenceComponent implements OnInit {
@@ -23,13 +18,11 @@ export class ConferenceComponent implements OnInit {
   constructor(private _conferenceApiService: ConferenceApiService) {}
 
   ngOnInit() {
+    this.queryFilters();
     this._conferenceApiService.getConference()
     .subscribe(
       Conferences => this.Conferences = Conferences,
       error => console.log('Error fetching conferences'));
-
-    this.queryFilters();
-
   }
 
 
@@ -48,6 +41,16 @@ export class ConferenceComponent implements OnInit {
     // .subscribe(
     //   Conferences => this.Conferences = Conferences,
     //   error => console.log('Error fetching Categories Filter'));
+  }
+
+  filterBySpeciality(event:string) {
+    console.log("event is :", event);
+    console.log("fetching events matching specialty filter");
+      this._conferenceApiService.filterBySpecialty(event)
+      .subscribe( 
+        Conferences => this.Conferences = Conferences,
+        error => console.log('Error fetching specialty filter conferences'));
+    
   }
 
   onSelect(selectedEvent: ConferenceEvent): void {

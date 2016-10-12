@@ -37,6 +37,12 @@ export class ConferenceApiService {
         .map(response => response.json());
     }
 
+    filterBySpecialty(specialityFilter : string){
+        console.log("filterBySpecialty called!", specialityFilter);
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?category=&specialty=${specialityFilter}&start_date_0=&start_date_1=&future_event=&weekend_event=`)
+        .map(response => response.json());
+    }
+
     getConferenceEventByID(id: number): Observable<ConferenceEvent> {
         console.log('id is : ', id);
         return this.http.get(`${this.baseUrl}opportunites/api/evenement/${id}`)
