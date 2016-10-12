@@ -14,5 +14,7 @@
 @import url("app/assets/css/swiper.css");
 @import url("app/assets/css/components/bs-select.css");
 
-/*@import url("app/assets/css/imports/sliders.css");
-*/
+/*daterangepicker css*/
+@import url("app/assets/css/daterangepicker.css");
+@import '../node_modules/font-awesome/css/font-awesome.css';
+

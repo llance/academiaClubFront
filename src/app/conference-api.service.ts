@@ -43,6 +43,12 @@ export class ConferenceApiService {
         .map(response => response.json());
     }
 
+    filterByContinent(continentFilter : string){
+        console.log("continentFilter called!", continentFilter);
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?continentFilter=${continentFilter}`)
+        .map(response => response.json());
+    }
+
     getConferenceEventByID(id: number): Observable<ConferenceEvent> {
         console.log('id is : ', id);
         return this.http.get(`${this.baseUrl}opportunites/api/evenement/${id}`)

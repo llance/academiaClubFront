@@ -25,41 +25,34 @@
                         <button class="btn btn-primary" type="button" (click)=searchEvent(searchInput.value)>Go!</button>
                         </span>
                     </div>
-                    <!-- /input-group -->
                 </section>
-                <section id="event-filter" class="row" *ngIf="SpecialityFilter">
+                <br>
+                <section id="reportrange" class="center" style="cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                    <span></span> <b class="caret"></b>
+                </section>
+                <!-- /input-group -->
+                <section id="event-filter" class="row">
                     <div class="col-md-3 bottommargin-sm">
-                        <div class="white-section">
-                            <select class="selectpicker" multiple data-style="btn-primary" data-none-selected-text="Filter 1" [(ngModel)]="SpecialityFilter.results" (ngModelChange)="filterBySpeciality($event)">
+                        <div class="white-section" *ngIf="SpecialityFilter">
+                            <select class="selectpicker" multiple data-none-selected-text="Specialties" [(ngModel)]="SpecialityFilters" (ngModelChange)="filterBySpeciality($event)">
                                 <option *ngFor="let speciality of SpecialityFilter.results" [value]="speciality.specialty_text">{{speciality.specialty_text}}</option>
                             </select>
                         </div>
-
                     </div>
                     <div class="col-md-3 bottommargin-sm">
-                        <div class="white-section">
-                            <select class="selectpicker" multiple data-style="btn-primary" data-none-selected-text="Filter 2">
-                                <option>Mustard</option>
-                                <option>Ketchup</option>
-                                <option>Relish</option>
+                        <div class="white-section" *ngIf="GeoFilter">
+                            <select class="selectpicker" data-none-selected-text="Continent" [(ngModel)]="ContinentFilter" (ngModelChange)="filterByContinent($event)">
+                                <option *ngFor="let geo of GeoFilter.results" [value]="geo.continent">
+                                    {{geo.continent}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-3 bottommargin-sm">
-                        <div class="white-section">
-                            <select class="selectpicker" multiple data-style="btn-primary" data-none-selected-text="Filter 3">
-                                <option>Mustard</option>
-                                <option>Ketchup</option>
-                                <option>Relish</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-3 bottommargin-sm">
-                        <div class="white-section">
-                            <select class="selectpicker" multiple data-style="btn-primary" data-none-selected-text="Filter 4">
-                                <option>Mustard</option>
-                                <option>Ketchup</option>
-                                <option>Relish</option>
+                        <div class="white-section" *ngIf="GeoFilter">
+                            <select class="selectpicker" data-none-selected-text="Country" [(ngModel)]="CountryFilter" (ngModelChange)="filterByCountry($event)">
+                                <option *ngFor="let geo of GeoFilter.results" [value]="geo.countries">
+                                    {{geo.countries.country}}</option>
                             </select>
                         </div>
                     </div>
