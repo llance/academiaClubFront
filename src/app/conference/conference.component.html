@@ -27,10 +27,8 @@
                     </div>
                 </section>
                 <br>
-                <section id="reportrange" class="center" style="cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
-                    <span></span> <b class="caret"></b>
-                </section>
+                <!--                 <datepicker [(ngModel)]="date" [expanded]="true"></datepicker>
+ -->
                 <!-- /input-group -->
                 <section id="event-filter" class="row">
                     <div class="col-md-3 bottommargin-sm">
@@ -43,16 +41,32 @@
                     <div class="col-md-3 bottommargin-sm">
                         <div class="white-section" *ngIf="GeoFilter">
                             <select class="selectpicker" data-none-selected-text="Continent" [(ngModel)]="ContinentFilter" (ngModelChange)="filterByContinent($event)">
-                                <option *ngFor="let geo of GeoFilter.results" [value]="geo.continent">
+                                <option *ngFor="let geo of GeoFilter.results; let i = index" [value]="i">
                                     {{geo.continent}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-3 bottommargin-sm">
-                        <div class="white-section" *ngIf="GeoFilter">
-                            <select class="selectpicker" data-none-selected-text="Country" [(ngModel)]="CountryFilter" (ngModelChange)="filterByCountry($event)">
-                                <option *ngFor="let geo of GeoFilter.results" [value]="geo.countries">
-                                    {{geo.countries.country}}</option>
+                        <div class="white-section" *ngIf="continentSelected">
+                            <select class="selectpicker" data-none-selected-text="Country" [(ngModel)]="CountriesFilter" (ngModelChange)="filterByCountry($event)">
+                                <option *ngFor="let country of GeoFilter.results[ContinentIndex].countries; let i = index" [value]="i">
+                                    {{country.country}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 bottommargin-sm">
+                        <div class="white-section" *ngIf="countrySelected">
+                            <select class="selectpicker" data-none-selected-text="Region" [(ngModel)]="RegionsFilter" (ngModelChange)="filterByRegion($event)">
+                                <option *ngFor="let region of GeoFilter.results[ContinentIndex].countries[CountryIndex].regions; let i = index" [value]="i">
+                                    {{region.region}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 bottommargin-sm">
+                        <div class="white-section" *ngIf="regionSelected">
+                            <select class="selectpicker" data-none-selected-text="City" [(ngModel)]="CitiesFilter" (ngModelChange)="filterByCity($event)">
+                                <option *ngFor="let city of GeoFilter.results[ContinentIndex].countries[CountryIndex].regions[RegionIndex].cities; let i = index" [value]="i">
+                                    {{city.city}}</option>
                             </select>
                         </div>
                     </div>

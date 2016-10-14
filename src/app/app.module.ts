@@ -20,6 +20,9 @@ import { ContactComponent } from './contact/contact.component';
 import { ConditionComponent } from './condition/condition.component';
 import { LoginComponent } from './login/login.component';
 
+import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { LoginComponent } from './login/login.component';
     MissionComponent,
     ContactComponent,
     ConditionComponent,
-    LoginComponent
+    LoginComponent,
+    DatePicker
   ],
   providers: [ConferenceApiService],
   bootstrap: [AppComponent]
