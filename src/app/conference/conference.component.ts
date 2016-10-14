@@ -70,16 +70,17 @@ export class ConferenceComponent implements OnInit {
 
 
   filterByContinent(event: number) {
+ 				console.log("event is :", event);
         this.ContinentIndex = event;
         this.continentSelected = true;
         // console.log("GeoFilter is :", this.GeoFilter);
-        // console.log("GeoFilter.results[ContinentIndex] is :", this.GeoFilter.results[event]);
+        console.log("GeoFilter.results[ContinentIndex] is :", this.GeoFilter.results[event].continent);
     // console.log("event is :", event);
     // console.log("fetching events matching specialty filter");
-    // this._conferenceApiService.filterByContinent(event)
-    // .subscribe( 
-    //   Conferences => this.Conferences = Conferences,
-    //   error => console.log('Error fetching region filter conferences'));
+    this._conferenceApiService.filterByContinent( this.GeoFilter.results[event].continent)
+    .subscribe( 
+      Conferences => this.Conferences = Conferences,
+      error => console.log('Error fetching region filter conferences'));
   }
 
 
@@ -91,6 +92,10 @@ filterByCountry(event:number){
 filterByRegion(event:number){
 	this.RegionIndex = event;
 	this.regionSelected = true;
+}
+
+filterByCity(event:number){
+
 }
 
 searchEvent(search_input : string) {

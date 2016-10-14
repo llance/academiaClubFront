@@ -41,7 +41,7 @@
                     <div class="col-md-3 bottommargin-sm">
                         <div class="white-section" *ngIf="GeoFilter">
                             <select class="selectpicker" data-none-selected-text="Continent" [(ngModel)]="ContinentFilter" (ngModelChange)="filterByContinent($event)">
-                                <option *ngFor="let geo of GeoFilter.results; let i = index" [value]="i">
+                                <option *ngFor="let geo of GeoFilter.results; let i = index" [value]="[i]">
                                     {{geo.continent}}</option>
                             </select>
                         </div>
