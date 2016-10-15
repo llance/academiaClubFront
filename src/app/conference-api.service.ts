@@ -43,9 +43,9 @@ export class ConferenceApiService {
         .map(response => response.json());
     }
 
-    filterByContinent(continentFilter : string){
-        console.log("continentFilter called!", continentFilter);
-        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?continentFilter=${continentFilter}`)
+    filterByCity(city : string){
+        console.log("city called!", city);
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?event_city=${city}`)
         .map(response => response.json());
     }
 

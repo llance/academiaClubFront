@@ -18,8 +18,9 @@ export class ConferenceComponent implements OnInit {
 
 
   ContinentIndex;
-	CountryIndex;
-	RegionIndex;
+  CountryIndex;
+  RegionIndex;
+  CityIndex;
 
 
   public continentSelected = false;
@@ -70,40 +71,45 @@ export class ConferenceComponent implements OnInit {
 
 
   filterByContinent(event: number) {
- 				console.log("event is :", event);
-        this.ContinentIndex = event;
-        this.continentSelected = true;
+    console.log("event is :", event);
+    this.ContinentIndex = event;
+    this.continentSelected = true;
         // console.log("GeoFilter is :", this.GeoFilter);
         console.log("GeoFilter.results[ContinentIndex] is :", this.GeoFilter.results[event].continent);
     // console.log("event is :", event);
     // console.log("fetching events matching specialty filter");
-    this._conferenceApiService.filterByContinent( this.GeoFilter.results[event].continent)
+    // this._conferenceApiService.filterByContinent( this.GeoFilter.results[event].continent)
+    // .subscribe( 
+    //   Conferences => this.Conferences = Conferences,
+    //   error => console.log('Error fetching region filter conferences'));
+  }
+
+
+  filterByCountry(event:number){
+    this.CountryIndex = event;
+    this.countrySelected = true;
+  }
+
+  filterByRegion(event:number){
+    this.RegionIndex = event;
+    this.regionSelected = true;
+  }
+
+  filterByCity(event:number){
+    this.CityIndex = event;
+    //console.log("this.GeoFilter.results[this.ContinentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex] is : ", this.GeoFilter.results[this.ContinentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex]);
+    this._conferenceApiService.filterByCity( this.GeoFilter.results[this.ContinentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex].city)
     .subscribe( 
       Conferences => this.Conferences = Conferences,
       error => console.log('Error fetching region filter conferences'));
   }
 
-
-filterByCountry(event:number){
-	this.CountryIndex = event;
-	this.countrySelected = true;
-}
-
-filterByRegion(event:number){
-	this.RegionIndex = event;
-	this.regionSelected = true;
-}
-
-filterByCity(event:number){
-
-}
-
-searchEvent(search_input : string) {
-  if (search_input) {
-    this._conferenceApiService.searchConference(search_input)
-    .subscribe(
-      Conferences => this.Conferences = Conferences,
-      error => console.log('Error fetching conferences'));
+  searchEvent(search_input : string) {
+    if (search_input) {
+      this._conferenceApiService.searchConference(search_input)
+      .subscribe(
+        Conferences => this.Conferences = Conferences,
+        error => console.log('Error fetching conferences'));
+    }
   }
-}
 }
