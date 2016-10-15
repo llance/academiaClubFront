@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { ConferenceApiService, Conferences, ConferenceEvent } from '../conference-api.service';
@@ -10,7 +10,7 @@ import { ConferenceApiService, Conferences, ConferenceEvent } from '../conferenc
   styleUrls: ['./conference.component.css',
   ]
 })
-export class ConferenceComponent implements OnInit {
+export class ConferenceComponent implements OnInit, AfterViewInit {
   Conferences;
   selectedEvent: ConferenceEvent;
   SpecialityFilter;
@@ -37,6 +37,11 @@ export class ConferenceComponent implements OnInit {
     .subscribe(
       Conferences => this.Conferences = Conferences,
       error => console.log('Error fetching conferences'));
+  }
+
+  ngAfterViewInit() {
+    // Your jQuery code goes here
+    $("#e1").daterangepicker();
   }
 
 
