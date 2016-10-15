@@ -14,7 +14,9 @@
 @import url("app/assets/css/swiper.css");
 @import url("app/assets/css/components/bs-select.css");
 
-/*daterangepicker css*/
-@import url("app/assets/css/daterangepicker.css");
-@import '../node_modules/font-awesome/css/font-awesome.css';
+/*css lib for http://tamble.github.io/jquery-ui-daterangepicker/*/
+@import url("app/assets/css/jquery-ui.min.css");
+@import url("app/assets/css/jquery.comiseo.daterangepicker.css");
+
+
 
