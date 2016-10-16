@@ -39,11 +39,43 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
       error => console.log('Error fetching conferences'));
   }
 
+
   ngAfterViewInit() {
-    // Your jQuery code goes here
-    $("#e1").daterangepicker();
+    (<any>$("#e1")).daterangepicker({
+      // presetRanges: [{
+      //   text: 'Today',
+      //   dateStart: function() { return moment() },
+      //   dateEnd: function() { return moment() }
+      // }, {
+      //   text: 'Tomorrow',
+      //   dateStart: function() { return moment().add('days', 1) },
+      //   dateEnd: function() { return moment().add('days', 1) }
+      // }, {
+      //   text: 'Next 7 Days',
+      //   dateStart: function() { return moment() },
+      //   dateEnd: function() { return moment().add('days', 6) }
+      // }, {
+      //   text: 'Next Week',
+      //   dateStart: function() { return moment().add('weeks', 1).startOf('week') },
+      //   dateEnd: function() { return moment().add('weeks', 1).endOf('week') }
+      // }],
+      applyOnMenuSelect: false,
+      datepickerOptions: {
+        minDate: null,
+        maxDate: null
+      },
+      altFormat: 'yy-mm-dd',
+      dateFormat: 'mm dd, yy' 
+    });
+
   }
 
+  dateFilter(){
+
+
+    console.log("selected date range : ",<any>$("#e1").daterangepicker("getRange"));
+  }
+  
 
   queryFilters() {
     this._conferenceApiService.getSpecialitesFilter()
