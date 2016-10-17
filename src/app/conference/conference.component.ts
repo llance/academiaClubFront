@@ -73,7 +73,7 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
   dateFilter(){
 
 
-    console.log("selected date range : ",<any>$("#e1").daterangepicker("getRange"));
+    console.log("selected date range : ",(<any>$("#e1")).daterangepicker("getRange"));
   }
   
 
