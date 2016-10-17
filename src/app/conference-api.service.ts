@@ -39,7 +39,14 @@ export class ConferenceApiService {
 
     filterBySpecialty(specialityFilter : string){
         console.log("filterBySpecialty called!", specialityFilter);
-        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?category=&specialty=${specialityFilter}&start_date_0=&start_date_1=&future_event=&weekend_event=`)
+        var specialtyUrl = "";
+        console.log("specialityFilter.length is :", specialityFilter.length );
+        for (let sf of specialityFilter) {
+            specialtyUrl = specialtyUrl + "specialty=" + sf + "&";
+        }
+
+        console.log("specialtyUrl is :", specialtyUrl);
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?${specialtyUrl}`)
         .map(response => response.json());
     }
 
@@ -47,6 +54,15 @@ export class ConferenceApiService {
         console.log("city called!", city);
         return this.http.get(`${this.baseUrl}opportunites/api/evenement/?event_city=${city}`)
         .map(response => response.json());
+    }
+
+    filterByDate(startdate : string){
+        console.log(" filterByDate called!", startdate);
+
+
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?start_date_0=${startdate}`)
+        .map(response => response.json());
+
     }
 
     getConferenceEventByID(id: number): Observable<ConferenceEvent> {
