@@ -76,9 +76,12 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
     console.log("selected date range : ", seletectedRange);
 
     var startdate = seletectedRange.substring(10, 20);
-    // console.log("selected date range : ", startdate);
 
-    this._conferenceApiService.filterByDate(startdate)
+    var enddate = seletectedRange.substring(seletectedRange.indexOf("end")+6, seletectedRange.indexOf("end")+16);
+
+    // console.log("selected end date : ", enddate);
+
+    this._conferenceApiService.filterByDate(startdate, enddate)
     .subscribe(
       Conferences => this.Conferences = Conferences,
       error => console.log('Error fetching date filter conferences'));

@@ -56,11 +56,11 @@ export class ConferenceApiService {
         .map(response => response.json());
     }
 
-    filterByDate(startdate : string){
-        console.log(" filterByDate called!", startdate);
+    filterByDate(startdate : string, enddate: string){
+        console.log(" filterByDate called!", startdate, "enddate: ",enddate);
 
 
-        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?start_date_0=${startdate}`)
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?start_date_0=${startdate}&start_date_1=${enddate}`)
         .map(response => response.json());
 
     }
