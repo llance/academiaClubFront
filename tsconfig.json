@@ -1,0 +1,29 @@
+{
+   "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": false,
+    "stripInternal": true,
+    "module": "system",
+    "moduleResolution": "node",
+    "noEmitOnError": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "target": "es5"
+  },
+  // "filesGlob": [
+  //   "./**/*.ts",
+  //   "!./node_modules",
+  //   "/src/typings/app.d.ts"
+  // ],
+  "exclude": [
+    "node_modules",
+    "node_modules/*",
+    "typings",
+    "dist",
+    "typings/*",
+    "typings/globals"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}
