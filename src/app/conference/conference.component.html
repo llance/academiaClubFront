@@ -1,9 +1,3 @@
-<!-- Page Title
-	============================================= -->
-<!-- <head>
-    <script type="text/javascript" src="app/assets/js/components/bs-select.js"></script>
-    <script type="text/javascript" src="app/assets/js/components/selectsplitter.js"></script>
-</head> -->
 <div class="main-content">
     <section id="page-title">
         <div class="container clearfix">
@@ -14,14 +8,12 @@
             </ol>
         </div>
     </section>
-    <!-- #page-title end -->
-    <!-- Content
-    ============================================= -->
+
+    <!-- Content============================================= -->
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix">
-                <!-- Portfolio Filter
-                ============================================= -->
+                <!-- Portfolio Filter============================================= -->
                 <section id="event-search" class="col_full bottommargin-sm">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for..." #searchInput (keyup.enter)="searchEvent(searchInput.value)" (blur)="searchEvent(searchInput.value); searchInput.value='' ">
@@ -78,8 +70,7 @@
                 </section>
                 <!-- Portfolio filter end -->
                 <div class="clear"></div>
-                <!-- Portfolio Items
-                ============================================= -->
+                <!-- Portfolio Items ============================================= -->
                 <ul>
                     <div *ngIf="Conferences">
                         <div id="portfolio" class="portfolio grid-container portfolio-3 clearfix">
@@ -107,8 +98,7 @@
                     </div>
                 </ul>
                 <!-- #portfolio end -->
-                <!-- Pagination
-                ============================================= -->
+                <!-- Pagination ============================================= -->
                 <ul class="pagination nobottommargin">
                     <li class="disabled"><a href="#">&laquo;</a></li>
                     <li class="active"><a href="#">1</a></li>
@@ -122,5 +112,3 @@
         </div>
     </section>
 </div>
-<!-- #content end -->
-<!-- Select-Boxes Plugin -->

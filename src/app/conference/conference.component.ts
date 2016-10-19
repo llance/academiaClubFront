@@ -7,7 +7,6 @@ import { ConferenceApiService, Conferences, ConferenceEvent } from '../conferenc
   selector: 'app-conference',
   templateUrl: './conference.component.html',
   styleUrls: ['./conference.component.css',
-  // '../assets/css/components/bs-select.css' 
   ]
 })
 export class ConferenceComponent implements OnInit, AfterViewInit {
@@ -50,26 +49,9 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
 
-        console.log("(<any>$('.selectpicker')) after view init is : ", (<any>$('.selectpicker')));
+    console.log("(<any>$('.selectpicker')) after view init is : ", (<any>$('.selectpicker')));
 
     (<any>$("#e1")).daterangepicker({
-      // presetRanges: [{
-      //   text: 'Today',
-      //   dateStart: function() { return moment() },
-      //   dateEnd: function() { return moment() }
-      // }, {
-      //   text: 'Tomorrow',
-      //   dateStart: function() { return moment().add('days', 1) },
-      //   dateEnd: function() { return moment().add('days', 1) }
-      // }, {
-      //   text: 'Next 7 Days',
-      //   dateStart: function() { return moment() },
-      //   dateEnd: function() { return moment().add('days', 6) }
-      // }, {
-      //   text: 'Next Week',
-      //   dateStart: function() { return moment().add('weeks', 1).startOf('week') },
-      //   dateEnd: function() { return moment().add('weeks', 1).endOf('week') }
-      // }],
       applyOnMenuSelect: false,
       datepickerOptions: {
         minDate: null,
