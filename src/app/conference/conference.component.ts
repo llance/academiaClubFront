@@ -1,13 +1,13 @@
-import { Component, OnInit, AfterViewInit} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewEncapsulation} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { ConferenceApiService, Conferences, ConferenceEvent } from '../conference-api.service';
-
 
 @Component({
   selector: 'app-conference',
   templateUrl: './conference.component.html',
   styleUrls: ['./conference.component.css',
+  // '../assets/css/components/bs-select.css' 
   ]
 })
 export class ConferenceComponent implements OnInit, AfterViewInit {
@@ -15,7 +15,6 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
   selectedEvent: ConferenceEvent;
   SpecialityFilter;
   GeoFilter;
-
 
   ContinentIndex;
   CountryIndex;
@@ -27,11 +26,20 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
   public countrySelected = false;
   public regionSelected = false;
 
-
-
   constructor(private _conferenceApiService: ConferenceApiService) {}
 
   ngOnInit() {
+    console.log("called!");
+
+    // console.log("is count increased :", (<any>$('.selectsplitter')));
+    // (<any>$('.selectsplitter')).selectsplitter();
+
+    (<any>$('.selectpicker')).selectpicker('render');
+    console.log("(<any>$('.selectpicker')) is : ", (<any>$('.selectpicker')));
+
+
+    // console.log("is count increased :", (<any>$('.selectsplitter')).length());
+
     this.queryFilters();
     this._conferenceApiService.getConference()
     .subscribe(
@@ -41,6 +49,9 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit() {
+
+        console.log("(<any>$('.selectpicker')) after view init is : ", (<any>$('.selectpicker')));
+
     (<any>$("#e1")).daterangepicker({
       // presetRanges: [{
       //   text: 'Today',
