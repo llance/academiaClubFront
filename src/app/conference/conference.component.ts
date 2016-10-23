@@ -43,7 +43,7 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
 
-    console.log("(<any>$('.selectpicker')) after view init is : ", (<any>$('.selectpicker')));
+    // console.log("(<any>$('.selectpicker')) after view init is : ", (<any>$('.selectpicker')));
 
     (<any>$("#e1")).daterangepicker({
       applyOnMenuSelect: false,
@@ -148,4 +148,8 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
         error => console.log('Error fetching conferences'));
     }
   }
+
+  onScroll () {
+        console.log('scrolled!!')
+    }
 }

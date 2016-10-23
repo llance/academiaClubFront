@@ -3518,8 +3518,8 @@ var SEMICOLON = SEMICOLON || {};
 	SEMICOLON.documentOnReady = {
 
 		init: function(){
-			console.log("$slider.length is :" , $slider.length);
-			console.log("$portfolio.length is :" , $portfolio.length);
+			// console.log("$slider.length is :" , $slider.length);
+			// console.log("$portfolio.length is :" , $portfolio.length);
 			SEMICOLON.initialize.init();
 			SEMICOLON.header.init();
 			if( $slider.length >= 0 ) { SEMICOLON.slider.init(); }

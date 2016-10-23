@@ -8,7 +8,6 @@
             </ol>
         </div>
     </section>
-
     <!-- Content============================================= -->
     <section id="content">
         <div class="content-wrap">
@@ -18,8 +17,8 @@
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for..." #searchInput (keyup.enter)="searchEvent(searchInput.value)" (blur)="searchEvent(searchInput.value); searchInput.value='' ">
                         <span class="input-group-btn">
-                			<button class="btn btn-primary" type="button" (click)=searchEvent(searchInput.value)>Go!</button>
-                		</span>
+                            <button class="btn btn-primary" type="button" (click)=searchEvent(searchInput.value)>Go!</button>
+                        </span>
                     </div>
                 </section>
                 <br>
@@ -29,8 +28,8 @@
                 <!-- /input-group -->
                 <section id="event-filter" class="row">
                     <div class="col-md-3 bottommargin-sm">
-                        <div class="white-section" *ngIf="SpecialityFilter">
-                            <select class="selectpicker" multiple data-none-selected-text="Specialties" [(ngModel)]="SpecialityFilters" (ngModelChange)="filterBySpeciality($event)">
+                        <div class="white-section" >
+                            <select class="selectpicker" *ngIf="SpecialityFilter" multiple data-none-selected-text="Specialties" [(ngModel)]="SpecialityFilters" (ngModelChange)="filterBySpeciality($event)">
                                 <option *ngFor="let speciality of SpecialityFilter.results" [value]="speciality.specialty_text">{{speciality.specialty_text}}</option>
                             </select>
                         </div>
@@ -81,7 +80,7 @@
                                             <img src="images/portfolio/4/1.jpg" alt="Open Imagination">
                                         </a>
                                         <div class="portfolio-overlay">
-                                            <a href="images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                                            <!-- <a href="images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a> -->
                                             <a href="#" routerLink="/conference/{{conference.id}}" class="right-icon">
                                                 <i class="icon-line-ellipsis" (click)="onSelect(conference)"></i>
                                             </a>
@@ -97,6 +96,8 @@
                         </div>
                     </div>
                 </ul>
+<!--                 <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500" (scrolled)="onScroll()">
+                </div> -->
                 <!-- #portfolio end -->
                 <!-- Pagination ============================================= -->
                 <ul class="pagination nobottommargin">

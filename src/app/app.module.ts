@@ -25,13 +25,17 @@ import { LoginComponent } from './login/login.component';
 import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
 import { CourseComponent } from './course/course.component';
 
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+
+
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    InfiniteScrollModule
   ],
   declarations: [
     AppComponent,
