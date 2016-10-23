@@ -1,7 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
-import { ConferenceApiService, ConferenceEvent} from '../conference-api.service';
+import { ConferenceApiService} from '../conference-api.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { ConferenceApiService, ConferenceEvent} from '../conference-api.service'
 })
 export class EventItemComponent implements OnInit {
     @Input()
-    conferenceEvent: ConferenceEvent;
+    conferenceEvent;
     navigated = false; // true if navigated here
 
 

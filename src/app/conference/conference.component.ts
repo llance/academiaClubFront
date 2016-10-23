@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewEncapsulation} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ConferenceApiService, ConferenceEvent } from '../conference-api.service';
+import { ConferenceApiService } from '../conference-api.service';
 
 @Component({
   selector: 'app-conference',
@@ -11,7 +11,7 @@ import { ConferenceApiService, ConferenceEvent } from '../conference-api.service
 })
 export class ConferenceComponent implements OnInit, AfterViewInit {
   Conferences;
-  selectedEvent: ConferenceEvent;
+  selectedEvent;
   SpecialityFilter;
   GeoFilter;
 

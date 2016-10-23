@@ -10,6 +10,8 @@ import { BodyComponent } from './body/body.component';
 import { ConferenceComponent } from './conference/conference.component';
 
 import { ConferenceApiService } from './conference-api.service';
+import { CourseApiService} from './course-api.service';
+
 
 import { routing } from './app.routes';
 import { EventItemComponent } from './event-item/event-item.component';
@@ -47,7 +49,7 @@ import { CourseComponent } from './course/course.component';
     DatePicker,
     CourseComponent
   ],
-  providers: [ConferenceApiService],
+  providers: [ConferenceApiService, CourseApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
