@@ -4,13 +4,12 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "http-server ",
+    "start": "http-server dist/",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "preinstall": "npm install -g http-server",
-    "postinstall" : "ng build --prod"
+    "preinstall": "npm install -g http-server"
   },
   "private": true,
   "dependencies": {
@@ -43,7 +42,6 @@
     "typescript": "2.0.2",
     "typings": "1.4.0",
     "@types/node": "^6.0.45"
-
   },
   "devDependencies": {
     "@types/jasmine": "^2.2.30",

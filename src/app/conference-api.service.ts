@@ -10,7 +10,7 @@ export class ConferenceApiService {
     baseUrl: string;
 
     constructor(private http: Http) {
-        this.baseUrl = 'http://localhost:8000/';
+        this.baseUrl = 'https://academiaclub.herokuapp.com/';
     }
 
     getConference(): Observable<Conferences> {
