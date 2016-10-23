@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewEncapsulation} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ConferenceApiService, Conferences, ConferenceEvent } from '../conference-api.service';
+import { ConferenceApiService, ConferenceEvent } from '../conference-api.service';
 
 @Component({
   selector: 'app-conference',
@@ -30,14 +30,8 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     console.log("called!");
 
-    // console.log("is count increased :", (<any>$('.selectsplitter')));
-    // (<any>$('.selectsplitter')).selectsplitter();
-
     (<any>$('.selectpicker')).selectpicker('render');
     console.log("(<any>$('.selectpicker')) is : ", (<any>$('.selectpicker')));
-
-
-    // console.log("is count increased :", (<any>$('.selectsplitter')).length());
 
     this.queryFilters();
     this._conferenceApiService.getConference()

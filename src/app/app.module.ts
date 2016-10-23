@@ -21,6 +21,7 @@ import { ConditionComponent } from './condition/condition.component';
 import { LoginComponent } from './login/login.component';
 
 import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
+import { CourseComponent } from './course/course.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
     ContactComponent,
     ConditionComponent,
     LoginComponent,
-    DatePicker
+    DatePicker,
+    CourseComponent
   ],
   providers: [ConferenceApiService],
   bootstrap: [AppComponent]
