@@ -31,7 +31,7 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
     console.log("called!");
 
     (<any>$('.selectpicker')).selectpicker('render');
-    console.log("(<any>$('.selectpicker')) is : ", (<any>$('.selectpicker')));
+    // console.log("(<any>$('.selectpicker')) is : ", (<any>$('.selectpicker')));
 
     this.queryFilters();
     this._conferenceApiService.getConference()

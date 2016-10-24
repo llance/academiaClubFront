@@ -14,20 +14,21 @@ export class ConferenceApiService {
     }
 
     getConference(): Observable<Conferences> {
-        console.log("getting conference events from backend...");
-        return this.http.get(`${this.baseUrl}opportunites/api/evenement/`)
+        console.log("AAAAAAAthis.baseUrl", this.baseUrl);
+        // console.log("getting conference events from backend...");
+        return this.http.get(`https://academiaclub.herokuapp.com/opportunites/api/evenement/`)
         .map(response => response.json());
     }
 
     getCategoriesFilter(): Observable<string> {
         console.log("fetching filter choices for evenement page");
-        return this.http.get(`${this.baseUrl}opportunites/api/categories/`)
+        return this.http.get(`https://academiaclub.herokuapp.com/opportunites/api/categories/`)
         .map(response => response.json());
     }
 
     getGeoFilter(): Observable<string> {
         console.log("fetching filter choices for evenement page");
-        return this.http.get(`${this.baseUrl}opportunites/api/geo/`)
+        return this.http.get(`https://academiaclub.herokuapp.com/opportunites/api/geo/`)
         .map(response => response.json());
     }
 
