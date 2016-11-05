@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { environment } from '../environments/environment';
-import { environmentIP } from './ipConstant';
+import { environmentIP } from '../environments/ipConstant';
 
 
 @Injectable()
@@ -17,6 +17,7 @@ export class ConferenceApiService {
         } else {
             this.baseUrl = environmentIP.getDevIP;
         }
+        this.baseUrl='https://academiaclub.herokuapp.com/';
     }
 
     getConference(): Observable<Conferences> {
