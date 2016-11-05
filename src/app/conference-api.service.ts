@@ -1,45 +1,45 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-
+import { environment } from '../environments/environment';
+import { environmentIP } from './ipConstant';
 
 
 @Injectable()
 export class ConferenceApiService {
     baseUrl: string;
-    headers;
 
     constructor(private http: Http) {
-        this.baseUrl = 'https://academiaclub.herokuapp.com/';
-        this.headers = new Headers();
-        this.headers.append('Content-Type', 'application/json');
-        this.headers.append('Access-Control-Allow-Origin', '*');
+        if (environment.production) {
+            this.baseUrl = environmentIP.getProdIP;
+        } else {
+            this.baseUrl = environmentIP.getDevIP;
+        }
     }
 
     getConference(): Observable<Conferences> {
-        // console.log("AAAAAAAthis.baseUrl", this.baseUrl);
         console.log("getting conference events from backend...");
-        return this.http.get(`h${this.baseUrl}opportunites/api/evenement/`, { headers: this.headers })
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/`)
         .map(response => response.json());
     }
 
     getCategoriesFilter(): Observable<string> {
         console.log("fetching filter choices for evenement page");
-        return this.http.get(`${this.baseUrl}opportunites/api/categories/`, { headers: this.headers })
+        return this.http.get(`${this.baseUrl}opportunites/api/categories/`)
         .map(response => response.json());
     }
 
     getGeoFilter(): Observable<string> {
         console.log("fetching filter choices for evenement page");
-        return this.http.get(`${this.baseUrl}opportunites/api/geo/`, { headers: this.headers })
+        return this.http.get(`${this.baseUrl}opportunites/api/geo/`)
         .map(response => response.json());
     }
 
     getSpecialitesFilter(): Observable<any> {
         console.log("fetching filter choices for evenement page");
-        return this.http.get(`${this.baseUrl}opportunites/api/specialites/`, { headers: this.headers })
+        return this.http.get(`${this.baseUrl}opportunites/api/specialites/`)
         .map(response => response.json());
     }
 
@@ -52,34 +52,32 @@ export class ConferenceApiService {
         }
 
         console.log("specialtyUrl is :", specialtyUrl);
-        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?${specialtyUrl}`, { headers: this.headers })
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?${specialtyUrl}`)
         .map(response => response.json());
     }
 
     filterByCity(city : string){
         console.log("city called!", city);
-        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?event_city=${city}`, { headers: this.headers })
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?event_city=${city}`)
         .map(response => response.json());
     }
 
     filterByDate(startdate : string, enddate: string){
         console.log(" filterByDate called!", startdate, "enddate: ",enddate);
-
-
-        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?start_date_0=${startdate}&start_date_1=${enddate}`, { headers: this.headers })
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?start_date_0=${startdate}&start_date_1=${enddate}`)
         .map(response => response.json());
 
     }
 
     getConferenceEventByID(id: number): Observable<ConferenceEvent> {
         console.log('id is : ', id);
-        return this.http.get(`${this.baseUrl}opportunites/api/evenement/${id}`, { headers: this.headers })
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/${id}`)
         .map(response => response.json());
     }
 
     searchConference(search_input: string): Observable<ConferenceEvent> {
         console.log('search_input is : ', search_input);
-        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?search=${search_input}`, { headers: this.headers })
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?search=${search_input}`)
         .map(response => response.json());
     }
 
