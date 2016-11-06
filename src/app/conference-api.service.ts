@@ -22,7 +22,8 @@ export class ConferenceApiService {
 
     getConference(): Observable<Conferences> {
         console.log("getting conference events from backend...");
-        return this.http.get(`${this.baseUrl}opportunites/api/evenement/`)
+        var todayDate = new Date().toJSON().slice(0,10);
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?&search=&format=json&start_date_0=+${todayDate}&limit=9`)
         .map(response => response.json());
     }
 
@@ -44,16 +45,15 @@ export class ConferenceApiService {
         .map(response => response.json());
     }
 
-    filterBySpecialty(specialityFilter : string){
+    filterBySpecialty(specialityFilter : string, startdate : string, enddate: string){
         console.log("filterBySpecialty called!", specialityFilter);
         var specialtyUrl = "";
         console.log("specialityFilter.length is :", specialityFilter.length );
         for (let sf of specialityFilter) {
             specialtyUrl = specialtyUrl + "specialty=" + sf + "&";
         }
-
         console.log("specialtyUrl is :", specialtyUrl);
-        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?${specialtyUrl}`)
+        return this.http.get(`${this.baseUrl}opportunites/api/evenement/?${specialtyUrl}&start_date_0=+${startdate}&start_date_1=${enddate}`)
         .map(response => response.json());
     }
 
@@ -81,7 +81,6 @@ export class ConferenceApiService {
         return this.http.get(`${this.baseUrl}opportunites/api/evenement/?search=${search_input}`)
         .map(response => response.json());
     }
-
 }
 
 export interface Conferences {  

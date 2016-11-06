@@ -6,30 +6,34 @@ import { ConferenceApiService } from '../conference-api.service';
 @Component({
   selector: 'app-conference',
   templateUrl: './conference.component.html',
-  styleUrls: ['./conference.component.css',
-  ]
+  // styleUrls: ['./conference.component.css',
+  // ],
+  styles: [`
+  #unstyledlist {
+    list-style-type: none;
+  }
+  `],
 })
 export class ConferenceComponent implements OnInit, AfterViewInit {
-  Conferences;
+  private Conferences;
   selectedEvent;
-  SpecialityFilter;
+  private specialityFilter;
   GeoFilter;
 
   ContinentIndex;
   CountryIndex;
   RegionIndex;
   CityIndex;
-
-
+  
   public continentSelected = false;
   public countrySelected = false;
   public regionSelected = false;
 
-  constructor(private _conferenceApiService: ConferenceApiService) {}
+  constructor(private _conferenceApiService: ConferenceApiService) {
+  }
 
   ngOnInit() {
     console.log("called!");
-
     (<any>$('.selectpicker')).selectpicker('render');
     // console.log("(<any>$('.selectpicker')) is : ", (<any>$('.selectpicker')));
 
@@ -54,7 +58,6 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
       altFormat: 'yy-mm-dd',
       dateFormat: 'mm dd, yy' 
     });
-
   }
 
   dateFilter(){
@@ -63,7 +66,6 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
     console.log("selected date range : ", seletectedRange);
 
     var startdate = seletectedRange.substring(10, 20);
-
     var enddate = seletectedRange.substring(seletectedRange.indexOf("end")+6, seletectedRange.indexOf("end")+16);
 
     // console.log("selected end date : ", enddate);
@@ -79,7 +81,7 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
   queryFilters() {
     this._conferenceApiService.getSpecialitesFilter()
     .subscribe(
-      SpecialityFilter => this.SpecialityFilter = SpecialityFilter,
+      specialityFilter => this.specialityFilter = specialityFilter,
       error => console.log('Error fetching Specialites Filter'));
 
     this._conferenceApiService.getGeoFilter()
@@ -97,7 +99,24 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
   filterBySpeciality(event:string) {
     // console.log("event is :", event);
     // console.log("fetching events matching specialty filter");
-    this._conferenceApiService.filterBySpecialty(event)
+
+    var startdate, enddate;
+
+    var seletectedRange = JSON.stringify((<any>$("#e1")).daterangepicker("getRange"));
+    console.log("selected date range : ", seletectedRange);
+
+    if (seletectedRange == null){
+      console.log("foo");
+      startdate = new Date().toJSON().slice(0,10);
+      enddate = new Date().toJSON().slice(0,10);
+    } else {
+      startdate = seletectedRange.substring(10, 20);
+      enddate = seletectedRange.substring(seletectedRange.indexOf("end")+6, seletectedRange.indexOf("end")+16);
+    }
+
+    console.log("startdate : ", startdate, ", enddate : ", enddate);
+
+    this._conferenceApiService.filterBySpecialty(event, startdate, enddate)
     .subscribe( 
       Conferences => this.Conferences = Conferences,
       error => console.log('Error fetching specialty filter conferences'));
@@ -110,8 +129,8 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
     console.log("event is :", event);
     this.ContinentIndex = event;
     this.continentSelected = true;
-        // console.log("GeoFilter is :", this.GeoFilter);
-        console.log("GeoFilter.results[ContinentIndex] is :", this.GeoFilter.results[event].continent);
+    // console.log("GeoFilter is :", this.GeoFilter);
+    console.log("GeoFilter.results[ContinentIndex] is :", this.GeoFilter.results[event].continent);
     // console.log("event is :", event);
     // console.log("fetching events matching specialty filter");
     // this._conferenceApiService.filterByContinent( this.GeoFilter.results[event].continent)
@@ -150,6 +169,6 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
   }
 
   onScroll () {
-        console.log('scrolled!!')
-    }
+    console.log('scrolled!!')
+  }
 }

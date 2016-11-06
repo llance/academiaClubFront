@@ -28,9 +28,9 @@
                 <!-- /input-group -->
                 <section id="event-filter" class="row">
                     <div class="col-md-3 bottommargin-sm">
-                        <div class="white-section" >
-                            <select class="selectpicker" *ngIf="SpecialityFilter" multiple data-none-selected-text="Specialties" [(ngModel)]="SpecialityFilters" (ngModelChange)="filterBySpeciality($event)">
-                                <option *ngFor="let speciality of SpecialityFilter.results" [value]="speciality.specialty_text">{{speciality.specialty_text}}</option>
+                        <div class="white-section" *ngIf="specialityFilter">
+                            <select class="selectpicker" multiple data-none-selected-text="Specialties" [(ngModel)]="specialityFilters" (ngModelChange)="filterBySpeciality($event)">
+                                <option *ngFor="let speciality of specialityFilter.results" [value]="speciality.specialty_text">{{speciality.specialty_text}}</option>
                             </select>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                 <!-- Portfolio filter end -->
                 <div class="clear"></div>
                 <!-- Portfolio Items ============================================= -->
-                <ul>
+                <ul id="unstyledlist">
                     <div *ngIf="Conferences">
                         <div id="portfolio" class="portfolio grid-container portfolio-3 clearfix">
                             <li *ngFor="let conference of Conferences.results" [class.selected]="conference === selectedEvent">
