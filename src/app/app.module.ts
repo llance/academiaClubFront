@@ -27,6 +27,7 @@ import { CourseComponent } from './course/course.component';
 
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
+import {SelectModule} from 'angular2-select';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     FormsModule,
     HttpModule,
     routing,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    SelectModule,
   ],
   declarations: [
     AppComponent,

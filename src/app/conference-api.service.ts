@@ -17,6 +17,7 @@ export class ConferenceApiService {
         } else {
             this.baseUrl = environmentIP.getDevIP;
         }
+        //this line force local dev to test against heroku backend
         this.baseUrl='https://academiaclub.herokuapp.com/';
     }
 

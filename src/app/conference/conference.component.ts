@@ -1,18 +1,13 @@
 import { Component, OnInit, AfterViewInit, ViewEncapsulation} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-
 import { ConferenceApiService } from '../conference-api.service';
 
 @Component({
   selector: 'app-conference',
   templateUrl: './conference.component.html',
-  // styleUrls: ['./conference.component.css',
-  // ],
-  styles: [`
-  #unstyledlist {
-    list-style-type: none;
-  }
-  `],
+  styleUrls: [
+  './conference.component.css',
+  ],
 })
 export class ConferenceComponent implements OnInit, AfterViewInit {
   private Conferences;
@@ -20,24 +15,30 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
   private specialityFilter;
   GeoFilter;
 
-  ContinentIndex;
+  continentIndex;
   CountryIndex;
   RegionIndex;
   CityIndex;
-  
+
   public continentSelected = false;
   public countrySelected = false;
   public regionSelected = false;
+
+  private _this = this;  // capture this
 
   constructor(private _conferenceApiService: ConferenceApiService) {
   }
 
   ngOnInit() {
     console.log("called!");
-    (<any>$('.selectpicker')).selectpicker('render');
-    // console.log("(<any>$('.selectpicker')) is : ", (<any>$('.selectpicker')));
+    // (<any>$('.selectpicker')).selectpicker('render');
 
     this.queryFilters();
+
+    this.sleep(500).then(() => {
+      (<any>$('.selectpicker')).selectpicker('render');
+    })
+
     this._conferenceApiService.getConference()
     .subscribe(
       Conferences => this.Conferences = Conferences,
@@ -47,8 +48,8 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
 
+    var __this = this._this;
     // console.log("(<any>$('.selectpicker')) after view init is : ", (<any>$('.selectpicker')));
-
     (<any>$("#e1")).daterangepicker({
       applyOnMenuSelect: false,
       datepickerOptions: {
@@ -56,8 +57,16 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
         maxDate: null
       },
       altFormat: 'yy-mm-dd',
-      dateFormat: 'mm dd, yy' 
+      dateFormat: 'mm dd, yy',
+
+      change : function(event, data) {
+        console.log("event is : ", event);
+        console.log("data is : ", data);
+        __this.dateFilter();
+      },
+      cancel: function(event, data) { console.log('cancel clicked') }
     });
+
   }
 
   dateFilter(){
@@ -74,15 +83,16 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
     .subscribe(
       Conferences => this.Conferences = Conferences,
       error => console.log('Error fetching date filter conferences'));
-
   }
   
-
   queryFilters() {
     this._conferenceApiService.getSpecialitesFilter()
     .subscribe(
       specialityFilter => this.specialityFilter = specialityFilter,
       error => console.log('Error fetching Specialites Filter'));
+
+    //this.options[0].value = this.specialityFilter.results[0].specialty_text;
+    // console.log("this.specialityFilter.results[0].specialty_text", this.specialityFilter.results[0].specialty_text);
 
     this._conferenceApiService.getGeoFilter()
     .subscribe(
@@ -126,34 +136,34 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
 
 
   filterByContinent(event: number) {
-    console.log("event is :", event);
-    this.ContinentIndex = event;
+    // console.log("event is :", event);
+    this.continentIndex = event;
     this.continentSelected = true;
     // console.log("GeoFilter is :", this.GeoFilter);
-    console.log("GeoFilter.results[ContinentIndex] is :", this.GeoFilter.results[event].continent);
-    // console.log("event is :", event);
-    // console.log("fetching events matching specialty filter");
-    // this._conferenceApiService.filterByContinent( this.GeoFilter.results[event].continent)
-    // .subscribe( 
-    //   Conferences => this.Conferences = Conferences,
-    //   error => console.log('Error fetching region filter conferences'));
+    console.log("GeoFilter.results[continentIndex] is :", this.GeoFilter.results[event].continent);
+    (<any>$('.countrypicker')).selectpicker('render');
   }
 
 
   filterByCountry(event:number){
+    (<any>$('.selectpicker')).selectpicker('render');
     this.CountryIndex = event;
     this.countrySelected = true;
   }
 
   filterByRegion(event:number){
+    (<any>$('.selectpicker')).selectpicker('render');
+
     this.RegionIndex = event;
     this.regionSelected = true;
   }
 
   filterByCity(event:number){
+    (<any>$('.selectpicker')).selectpicker('render');
+
     this.CityIndex = event;
-    //console.log("this.GeoFilter.results[this.ContinentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex] is : ", this.GeoFilter.results[this.ContinentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex]);
-    this._conferenceApiService.filterByCity( this.GeoFilter.results[this.ContinentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex].city)
+    //console.log("this.GeoFilter.results[this.continentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex] is : ", this.GeoFilter.results[this.continentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex]);
+    this._conferenceApiService.filterByCity( this.GeoFilter.results[this.continentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex].city)
     .subscribe( 
       Conferences => this.Conferences = Conferences,
       error => console.log('Error fetching region filter conferences'));
@@ -168,7 +178,31 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onScroll () {
-    console.log('scrolled!!')
+
+
+  sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
   }
+
+
+
+  loadjscssfile(filename : string, filetype: string){
+    console.log("loading file");
+    if (filetype=="js"){ //if filename is a external JavaScript file
+      var fileref_js=document.createElement('script')
+      fileref_js.setAttribute("type","text/javascript")
+      fileref_js.setAttribute("src", filename)
+      document.getElementsByTagName("head")[0].appendChild(fileref_js)
+    }
+    else if (filetype=="css"){ //if filename is an external CSS file
+      var fileref_css=document.createElement("link")
+      fileref_css.setAttribute("rel", "stylesheet")
+      fileref_css.setAttribute("type", "text/css")
+      fileref_css.setAttribute("href", filename)
+      document.getElementsByTagName("head")[0].appendChild(fileref_css)
+    }
+  }
+
+
+
 }

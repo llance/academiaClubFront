@@ -5,6 +5,7 @@
  */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -2273,8 +2274,8 @@ fieldset[disabled] .btn-default.active {
   background-color: #333333;
 }
 .btn-primary {
-  color: #ffffff;
-  background-color: #337ab7;
+  color: #000000;
+  background-color: #000000;
   border-color: #2e6da4;
 }
 .btn-primary:hover,
@@ -2283,8 +2284,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-  color: #ffffff;
-  background-color: #286090;
+  color: #000000;
+  background-color: #000000;
   border-color: #204d74;
 }
 .btn-primary:active,

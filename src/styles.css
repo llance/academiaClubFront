@@ -18,5 +18,11 @@
 @import url("assets/css/jquery-ui.min.css");
 @import url("assets/css/jquery.comiseo.daterangepicker.css");
 
+/*css lib for https://github.com/valor-software/ng2-select/*/
+@import url("assets/css/ng2-select.css");
+
+
+
+
 
 

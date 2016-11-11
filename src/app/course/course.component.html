@@ -25,7 +25,6 @@
                 <br>
                 <!-- http://tamble.github.io/jquery-ui-daterangepicker/ -->
                 <input id="e1" name="e1">
-                <button class="btn btn-primary" type="button" (click)=dateFilter()>search with date range!</button>
                 <!-- /input-group -->
                 <section id="event-filter" class="row">
                     <div class="col-md-3 bottommargin-sm">
@@ -43,26 +42,26 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3 bottommargin-sm" *ngIf="continentSelected && GeoFilter?.results[ContinentIndex]?.countries">
+                    <div class="col-md-3 bottommargin-sm" *ngIf="continentSelected && GeoFilter?.results[continentIndex]?.countries">
                         <div class="white-section">
                             <select class="selectpicker" data-none-selected-text="Country" [(ngModel)]="CountriesFilter" (ngModelChange)="filterByCountry($event)">
-                                <option *ngFor="let country of GeoFilter.results[ContinentIndex].countries; let i = index" [value]="i">
+                                <option *ngFor="let country of GeoFilter.results[continentIndex].countries; let i = index" [value]="i">
                                     {{country.country}}</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3 bottommargin-sm" *ngIf="countrySelected && GeoFilter?.results[ContinentIndex]?.countries[CountryIndex]?.regions">
+                    <div class="col-md-3 bottommargin-sm" *ngIf="countrySelected && GeoFilter?.results[continentIndex]?.countries[CountryIndex]?.regions">
                         <div class="white-section">
                             <select class="selectpicker" data-none-selected-text="Region" [(ngModel)]="RegionsFilter" (ngModelChange)="filterByRegion($event)">
-                                <option *ngFor="let region of GeoFilter.results[ContinentIndex].countries[CountryIndex].regions; let i = index" [value]="i">
+                                <option *ngFor="let region of GeoFilter.results[continentIndex].countries[CountryIndex].regions; let i = index" [value]="i">
                                     {{region.region}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-3 bottommargin-sm">
-                        <div class="white-section" *ngIf="regionSelected  && GeoFilter?.results[ContinentIndex]?.countries[CountryIndex]?.regions[RegionIndex]?.cities">
+                        <div class="white-section" *ngIf="regionSelected  && GeoFilter?.results[continentIndex]?.countries[CountryIndex]?.regions[RegionIndex]?.cities">
                             <select class="selectpicker" data-none-selected-text="City" [(ngModel)]="CitiesFilter" (ngModelChange)="filterByCity($event)">
-                                <option *ngFor="let city of GeoFilter.results[ContinentIndex].countries[CountryIndex].regions[RegionIndex].cities; let i = index" [value]="i">
+                                <option *ngFor="let city of GeoFilter.results[continentIndex].countries[CountryIndex].regions[RegionIndex].cities; let i = index" [value]="i">
                                     {{city.city}}</option>
                             </select>
                         </div>

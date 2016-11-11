@@ -24,92 +24,92 @@
                 <br>
                 <!-- http://tamble.github.io/jquery-ui-daterangepicker/ -->
                 <input id="e1" name="e1">
-                <button class="btn btn-primary" type="button" (click)=dateFilter()>search with date range!</button>
                 <!-- /input-group -->
                 <section id="event-filter" class="row">
                     <div class="col-md-3 bottommargin-sm">
                         <div class="white-section" *ngIf="specialityFilter">
-                            <select class="selectpicker" multiple data-none-selected-text="Specialties" [(ngModel)]="specialityFilters" (ngModelChange)="filterBySpeciality($event)">
-                                <option *ngFor="let speciality of specialityFilter.results" [value]="speciality.specialty_text">{{speciality.specialty_text}}</option>
+                        <select class="selectpicker" multiple data-none-selected-text="Specialties" [(ngModel)]="specialityFilters" (ngModelChange)="filterBySpeciality($event)">
+                            <option *ngFor="let speciality of specialityFilter.results" [value]="speciality.specialty_text">{{speciality.specialty_text}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3 bottommargin-sm">
+                    <div class="white-section" *ngIf="GeoFilter">
+                        <select class="selectpicker" data-none-selected-text="Continent" [(ngModel)]="ContinentFilter" (ngModelChange)="filterByContinent($event)">
+                            <option *ngFor="let geo of GeoFilter.results; let i = index" [value]="[i]">
+                                {{geo.continent}}</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3 bottommargin-sm">
-                        <div class="white-section" *ngIf="GeoFilter">
-                            <select class="selectpicker" data-none-selected-text="Continent" [(ngModel)]="ContinentFilter" (ngModelChange)="filterByContinent($event)">
-                                <option *ngFor="let geo of GeoFilter.results; let i = index" [value]="[i]">
-                                    {{geo.continent}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-3 bottommargin-sm" *ngIf="continentSelected && GeoFilter?.results[ContinentIndex]?.countries">
+                    <div class="col-md-3 bottommargin-sm" *ngIf="continentSelected && GeoFilter?.results[continentIndex]?.countries">
                         <div class="white-section">
-                            <select class="selectpicker" data-none-selected-text="Country" [(ngModel)]="CountriesFilter" (ngModelChange)="filterByCountry($event)">
-                                <option *ngFor="let country of GeoFilter.results[ContinentIndex].countries; let i = index" [value]="i">
+                            <select class="selectpicker countrypicker" data-none-selected-text="Country" [(ngModel)]="CountriesFilter" (ngModelChange)="filterByCountry($event)">
+                                <option *ngFor="let country of GeoFilter.results[continentIndex].countries; let i = index" [value]="i">
                                     {{country.country}}</option>
-                            </select>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 bottommargin-sm" *ngIf="countrySelected && GeoFilter?.results[ContinentIndex]?.countries[CountryIndex]?.regions">
-                        <div class="white-section">
-                            <select class="selectpicker" data-none-selected-text="Region" [(ngModel)]="RegionsFilter" (ngModelChange)="filterByRegion($event)">
-                                <option *ngFor="let region of GeoFilter.results[ContinentIndex].countries[CountryIndex].regions; let i = index" [value]="i">
-                                    {{region.region}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-3 bottommargin-sm">
-                        <div class="white-section" *ngIf="regionSelected  && GeoFilter?.results[ContinentIndex]?.countries[CountryIndex]?.regions[RegionIndex]?.cities">
-                            <select class="selectpicker" data-none-selected-text="City" [(ngModel)]="CitiesFilter" (ngModelChange)="filterByCity($event)">
-                                <option *ngFor="let city of GeoFilter.results[ContinentIndex].countries[CountryIndex].regions[RegionIndex].cities; let i = index" [value]="i">
-                                    {{city.city}}</option>
-                            </select>
-                        </div>
-                    </div>
-                </section>
-                <!-- Portfolio filter end -->
-                <div class="clear"></div>
-                <!-- Portfolio Items ============================================= -->
-                <ul id="unstyledlist">
-                    <div *ngIf="Conferences">
-                        <div id="portfolio" class="portfolio grid-container portfolio-3 clearfix">
-                            <li *ngFor="let conference of Conferences.results" [class.selected]="conference === selectedEvent">
-                                <article class="portfolio-item pf-media pf-icons event_item">
-                                    <div class="portfolio-image">
-                                        <a href="#">
-                                            <img src={{conference.event_image_url}} alt="Open Imagination">
-                                        </a>
-                                        <div class="portfolio-overlay">
-                                            <!-- <a href="images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a> -->
-                                            <a href="#" routerLink="/conference/{{conference.id}}" class="right-icon">
-                                                <i class="icon-line-ellipsis" (click)="onSelect(conference)"></i>
-                                            </a>
-                                        </div>
+                        <div class="col-md-3 bottommargin-sm" *ngIf="countrySelected && GeoFilter?.results[continentIndex]?.countries[CountryIndex]?.regions">
+                            <div class="white-section">
+                                <select class="selectpicker" data-none-selected-text="Region" [(ngModel)]="RegionsFilter" (ngModelChange)="filterByRegion($event)">
+                                    <option *ngFor="let region of GeoFilter.results[continentIndex].countries[CountryIndex].regions; let i = index" [value]="i">
+                                        {{region.region}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3 bottommargin-sm">
+                                <div class="white-section" *ngIf="regionSelected  && GeoFilter?.results[continentIndex]?.countries[CountryIndex]?.regions[RegionIndex]?.cities">
+                                    <select class="selectpicker" data-none-selected-text="City" [(ngModel)]="CitiesFilter" (ngModelChange)="filterByCity($event)">
+                                        <option *ngFor="let city of GeoFilter.results[continentIndex].countries[CountryIndex].regions[RegionIndex].cities; let i = index" [value]="i">
+                                            {{city.city}}</option>
+                                        </select>
                                     </div>
-                                    <div class="portfolio-desc">
-                                        <h3><a href="#" >{{conference.event_text | json}}</a></h3>
-                                        <span><a href="#">{{conference.start_date | json}}</a> to <a href="#">{{conference.end_date | json}}</a></span>
-                                        <p>{{conference.event_city}} ({{conference.event_region}}), {{conference.event_country}}</p>
+                                </div>
+                            </section>
+                            <!-- Portfolio filter end -->
+                            <div class="clear"></div>
+                            <!-- Portfolio Items ============================================= -->
+                            <ul id="unstyledlist">
+                                <div *ngIf="Conferences">
+                                    <div id="portfolio" class="portfolio grid-container portfolio-3 clearfix">
+                                        <li *ngFor="let conference of Conferences.results" [class.selected]="conference === selectedEvent">
+                                            <article class="portfolio-item pf-media pf-icons event_item">
+                                                <div class="portfolio-image">
+                                                    <a href="#">
+                                                        <img src={{conference.event_image_url}} alt="Open Imagination">
+                                                    </a>
+                                                    <div class="portfolio-overlay">
+                                                        <!-- <a href="images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a> -->
+                                                        <a href="#" routerLink="/conference/{{conference.id}}" class="right-icon">
+                                                            <i class="icon-line-ellipsis" (click)="onSelect(conference)"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="portfolio-desc">
+                                                    <h3><a href="#" >{{conference.event_text | json}}</a></h3>
+                                                    <span><a href="#">{{conference.start_date | json}}</a> to <a href="#">{{conference.end_date | json}}</a></span>
+                                                    <p>{{conference.event_city}} ({{conference.event_region}}), {{conference.event_country}}</p>
+                                                </div>
+                                            </article>
+                                        </li>
                                     </div>
-                                </article>
-                            </li>
-                        </div>
-                    </div>
-                </ul>
+                                </div>
+                            </ul>
 <!--                 <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500" (scrolled)="onScroll()">
-                </div> -->
-                <!-- #portfolio end -->
-                <!-- Pagination ============================================= -->
-                <ul class="pagination nobottommargin">
-                    <li class="disabled"><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
+</div> -->
+<!-- #portfolio end -->
+<!-- Pagination ============================================= -->
+<ul class="pagination nobottommargin">
+    <li class="disabled"><a href="#">&laquo;</a></li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">&raquo;</a></li>
+</ul>
+</div>
+</div>
+</section>
 </div>
