@@ -10,15 +10,15 @@ import { ConferenceApiService } from '../conference-api.service';
   ],
 })
 export class ConferenceComponent implements OnInit, AfterViewInit {
-  private Conferences;
+  private conferences;
   private selectedEvent;
   private specialityFilter;
-  GeoFilter;
+  private geoFilter;
 
   continentIndex;
-  CountryIndex;
-  RegionIndex;
-  CityIndex;
+  countryIndex;
+  regionIndex;
+  cityIndex;
 
   public continentSelected = false;
   public countrySelected = false;
@@ -34,7 +34,7 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
 
     this._conferenceApiService.getConference()
     .subscribe(
-      Conferences => this.Conferences = Conferences,
+      conferences => this.conferences = conferences,
       error => console.log('Error fetching conferences'));
 
     this.sleep(1000).then(() => {
@@ -75,7 +75,7 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
 
     this._conferenceApiService.filterByDate(startdate, enddate)
     .subscribe(
-      Conferences => this.Conferences = Conferences,
+      conferences => this.conferences = conferences,
       error => console.log('Error fetching date filter conferences'));
   }
   
@@ -87,13 +87,13 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
 
     this._conferenceApiService.getGeoFilter()
     .subscribe(
-      GeoFilter => this.GeoFilter = GeoFilter,
+      geoFilter => this.geoFilter = geoFilter,
       error => console.log('Error fetching Geo Filter')
       );
 
     // this._conferenceApiService.getCategoriesFilter()
     // .subscribe(
-    //   Conferences => this.Conferences = Conferences,
+    //   conferences => this.conferences = conferences,
     //   error => console.log('Error fetching Categories Filter'));
   }
 
@@ -116,7 +116,7 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
 
     this._conferenceApiService.filterBySpecialty(event, startdate, enddate)
     .subscribe( 
-      Conferences => this.Conferences = Conferences,
+      conferences => this.conferences = conferences,
       error => console.log('Error fetching specialty filter conferences'));
     
   }
@@ -125,32 +125,32 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
     // console.log("event is :", event);
     this.continentIndex = event;
     this.continentSelected = true;
-    // console.log("GeoFilter is :", this.GeoFilter);
-    console.log("GeoFilter.results[continentIndex] is :", this.GeoFilter.results[event].continent);
+    // console.log("geoFilter is :", this.geoFilter);
+    console.log("geoFilter.results[continentIndex] is :", this.geoFilter.results[event].continent);
     (<any>$('.countrypicker')).selectpicker('render');
   }
 
   filterByCountry(event:number){
     (<any>$('.selectpicker')).selectpicker('render');
-    this.CountryIndex = event;
+    this.countryIndex = event;
     this.countrySelected = true;
   }
 
   filterByRegion(event:number){
     (<any>$('.selectpicker')).selectpicker('render');
 
-    this.RegionIndex = event;
+    this.regionIndex = event;
     this.regionSelected = true;
   }
 
   filterByCity(event:number){
     (<any>$('.selectpicker')).selectpicker('render');
 
-    this.CityIndex = event;
-    //console.log("this.GeoFilter.results[this.continentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex] is : ", this.GeoFilter.results[this.continentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex]);
-    this._conferenceApiService.filterByCity( this.GeoFilter.results[this.continentIndex].countries[this.CountryIndex].regions[this.RegionIndex].cities[this.CityIndex].city)
+    this.cityIndex = event;
+    //console.log("this.geoFilter.results[this.continentIndex].countries[this.countryIndex].regions[this.regionIndex].cities[this.cityIndex] is : ", this.geoFilter.results[this.continentIndex].countries[this.countryIndex].regions[this.regionIndex].cities[this.cityIndex]);
+    this._conferenceApiService.filterByCity( this.geoFilter.results[this.continentIndex].countries[this.countryIndex].regions[this.regionIndex].cities[this.cityIndex].city)
     .subscribe( 
-      Conferences => this.Conferences = Conferences,
+      conferences => this.conferences = conferences,
       error => console.log('Error fetching region filter conferences'));
   }
 
@@ -158,9 +158,13 @@ export class ConferenceComponent implements OnInit, AfterViewInit {
     if (search_input) {
       this._conferenceApiService.searchConference(search_input)
       .subscribe(
-        Conferences => this.Conferences = Conferences,
+        conferences => this.conferences = conferences,
         error => console.log('Error fetching conferences'));
     }
+  }
+
+  sleep(time){
+    return new Promise((resolve) => setTimeout(resolve, time));
   }
 
 }
